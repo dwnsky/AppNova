@@ -146,7 +146,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="#E8E4DC"
+                android:background="@drawable/card"
+                android:backgroundTint="#E8E4DC"
                 android:padding="16dp">
 
                 <!-- Order Header -->
@@ -154,7 +155,8 @@
                     android:id="@+id/orderHeader1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="#4A3518"
+                    android:background="@drawable/card"
+                    android:backgroundTint="#4A3518"
                     android:padding="12dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -259,7 +261,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="#E8E4DC"
+                android:background="@drawable/card"
+                android:backgroundTint="#E8E4DC"
                 android:padding="16dp">
 
                 <!-- Order Header -->
@@ -267,7 +270,8 @@
                     android:id="@+id/orderHeader2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="#4A3518"
+                    android:background="@drawable/card"
+                    android:backgroundTint="#4A3518"
                     android:padding="12dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -372,7 +376,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="#E8E4DC"
+                android:background="@drawable/card"
+                android:backgroundTint="#E8E4DC"
                 android:padding="16dp">
 
                 <!-- Order Header -->
@@ -380,7 +385,8 @@
                     android:id="@+id/orderHeader3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="#4A3518"
+                    android:background="@drawable/card"
+                    android:backgroundTint="#4A3518"
                     android:padding="12dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -483,7 +489,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#E8E4DC"
+                android:background="@drawable/card"
+                android:backgroundTint="#E8E4DC"
                 android:padding="16dp">
 
                 <!-- Order Header -->
@@ -491,7 +498,8 @@
                     android:id="@+id/orderHeader4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="#4A3518"
+                    android:background="@drawable/card"
+                    android:backgroundTint="#4A3518"
                     android:padding="12dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
