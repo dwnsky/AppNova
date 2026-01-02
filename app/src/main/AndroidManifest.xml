@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppNovaVolunteer">
         <activity
+            android:name=".FridgeDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".FridgeResultActivity"
             android:exported="false" />
         <!--
