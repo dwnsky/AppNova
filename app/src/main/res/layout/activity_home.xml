@@ -61,7 +61,6 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@android:color/holo_red_dark"
-                android:backgroundTint="@android:color/holo_red_dark"
                 android:elevation="5dp" />
         </FrameLayout>
     </RelativeLayout>
@@ -351,6 +350,7 @@
         </LinearLayout>
 
         <ImageButton
+            android:id="@+id/btnDonationNav"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
