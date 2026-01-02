@@ -1,5 +1,6 @@
 package com.example.appnovavolunteer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,11 @@ public class FoodDetailActivity extends AppCompatActivity {
 
         binding.btnRequest.setOnClickListener(v -> {
             Toast.makeText(this, "Request submitted for Noodles!", Toast.LENGTH_SHORT).show();
+        });
+
+        binding.btnRequest.setOnClickListener(v -> {
+            Intent intent = new Intent(FoodDetailActivity.this, RequestSuccessActivity.class);
+            startActivity(intent);
         });
     }
 }
