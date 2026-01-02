@@ -1,5 +1,6 @@
 package com.example.appnovavolunteer;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -19,6 +20,12 @@ public class TaskDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Di dalam TaskDetailActivity.java
+        binding.ivNoodles.setOnClickListener(v -> {
+            Intent intent = new Intent(TaskDetailActivity.this, FoodDetailActivity.class);
+            startActivity(intent);
+        });
+
         // 2. Inflate binding
         binding = ActivityTaskDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -29,5 +36,7 @@ public class TaskDetailActivity extends AppCompatActivity {
                 finish(); // Tutup page ini dan balik ke page sebelum
             });
         }
+
+
     }
 }
