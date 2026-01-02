@@ -35,5 +35,11 @@ public class FridgeDetailActivity extends AppCompatActivity {
         binding.mapResult.setOnClickListener(v -> {
             finish(); // Menutup activity ini dan kembali ke FridgeMapActivity
         });
+
+        // Di dalam FridgeDetailActivity.java
+        binding.btnSeeDetails.setOnClickListener(v -> {
+            Intent intent = new Intent(FridgeDetailActivity.this, TaskDetailActivity.class);
+            startActivity(intent);
+        });
     }
 }
