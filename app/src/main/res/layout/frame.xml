@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="236dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="68dp"
+        android:text="Choose Your&#xA;Role"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/customerBtn"
+        android:layout_width="339dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="25dp"
+        android:text="."
+        android:background="@drawable/customer_button"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sellerBtn"
+        android:layout_width="345dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="8dp"
+        android:text="."
+        android:background="@drawable/seller_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customerBtn" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/volunteerBtn"
+        android:layout_width="332dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="28dp"
+        android:text="."
+        android:background="@drawable/volunteer_button"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.607"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sellerBtn" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="129dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="8dp"
+        app:layout_constraintStart_toStartOf="@id/volunteerBtn"
+        app:layout_constraintTop_toTopOf="@id/volunteerBtn"
+        app:srcCompat="@drawable/volunteer" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

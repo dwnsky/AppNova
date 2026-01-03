@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:text="Welcome Back,\nDona Bakery!"
+        android:textColor="#4B3518"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMyShop2" />
+
+    <View
+        android:id="@+id/bgBottom8"
+        android:layout_width="335dp"
+        android:layout_height="163dp"
+        android:layout_marginTop="468dp"
+        android:background="@drawable/bg_brown_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/bgTop8"
+        android:layout_width="335dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="532dp"
+        android:background="@drawable/bg_cream_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgProduct8"
+        android:layout_width="103dp"
+        android:layout_height="93dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/pain_au_chocolat"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="488dp"
+        android:text="Pain Au Chocolat"
+        android:textColor="#FBEDDC"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDetails8"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="556dp"
+        android:text="Uploaded: 10/12/2025\nBest before: 22/12/2025\nRM10.00 RM6.00\n40% OFF!"
+        android:textColor="#5A4F41"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/bgBottom5"
+        android:layout_width="335dp"
+        android:layout_height="163dp"
+        android:layout_marginTop="228dp"
+        android:background="@drawable/bg_brown_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/bgTop5"
+        android:layout_width="335dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="280dp"
+        android:background="@drawable/bg_cream_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="Croissant"
+        android:textColor="#FBEDDC"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/bgBottom5"
+        app:layout_constraintTop_toTopOf="@+id/bgBottom5" />
+
+    <TextView
+        android:id="@+id/tvDetails5"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="304dp"
+        android:text="Uploaded: 10/12/2025\nBest before: 22/12/2025\nRM10.00 RM6.00\n40% OFF!"
+        android:textColor="#5A4F41"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgProduct5"
+        android:layout_width="98dp"
+        android:layout_height="99dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="324dp"
+        android:background="@drawable/croissant"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDate2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="196dp"
+        android:text="14th May 2025"
+        android:textColor="#4B3518"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvMyShop2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Home"
+        android:textColor="#4B3518"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgPlaceholder2"
+        android:layout_width="49dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="28dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/seller_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/button2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="38dp"
+        android:text="."
+        android:background="@drawable/more_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Bottom Nav Buttons -->
+
+    <View
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="62dp"
+        android:background="#ECDFCE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvShop"
+        android:layout_width="46dp"
+        android:layout_height="23dp"
+        android:layout_marginEnd="24dp"
+        android:text="Shop"
+        android:textColor="#4B3518"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
+        app:layout_constraintEnd_toStartOf="@+id/tvUpload"
+        app:layout_constraintTop_toTopOf="@+id/bottomNav"
+        app:layout_constraintVertical_bias="0.538" />
+
+    <TextView
+        android:id="@+id/tvUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="102dp"
+        android:text="Upload"
+        android:textColor="#4B3518"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
+        app:layout_constraintEnd_toStartOf="@+id/tvUpload2"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomNav"
+        app:layout_constraintVertical_bias="0.525" />
+
+    <TextView
+        android:id="@+id/tvHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="172dp"
+        android:text="Home"
+        android:textColor="#4B3518"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
+        app:layout_constraintEnd_toStartOf="@+id/tvChat"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomNav"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <TextView
+        android:id="@+id/tvChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="248dp"
+        android:text="Chat"
+        android:textColor="#4B3518"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
+        app:layout_constraintEnd_toStartOf="@+id/tvDonate"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomNav"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <TextView
+        android:id="@+id/tvDonate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="320dp"
+        android:text="Donate"
+        android:textColor="#4B3518"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomNav"
+        app:layout_constraintVertical_bias="0.525" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

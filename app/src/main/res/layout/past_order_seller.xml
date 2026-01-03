@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <View
+        android:id="@+id/bgBottom3"
+        android:layout_width="335dp"
+        android:layout_height="163dp"
+        android:layout_marginTop="496dp"
+        android:background="@drawable/bg_brown_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="248dp"
+        android:text="DAWNA                       DONE"
+        android:textColor="#FBEDDC"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/bgBottom5"
+        app:layout_constraintTop_toTopOf="@+id/bgBottom5" />
+
+    <View
+        android:id="@+id/bgTop3"
+        android:layout_width="335dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="556dp"
+        android:background="@drawable/bg_cream_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RatingBar
+        android:id="@+id/ratingBar2"
+        android:layout_width="145dp"
+        android:layout_height="49dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bgTop5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toEndOf="@+id/btnChat"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetails5"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tvDetails3"
+        android:layout_width="302dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="564dp"
+        android:text="CROISSANT                                     X1  \n\n                         Total payment = RM7"
+        android:textColor="#5A4F41"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/order_button"
+        android:layout_width="123dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="76dp"
+        android:background="@drawable/bg_dark_silver_rounded"
+        android:text="Order"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMyShop" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/add_item_button"
+        android:layout_width="123dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_cream_rounded"
+        android:text="Add Item"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMyShop" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/current_order"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_cream_rounded"
+        android:text="Current Order"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_item_button" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/past_order"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/bg_dark_silver_rounded"
+        android:text="Past Order"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_button" />
+
+    <TextView
+        android:id="@+id/tvMyShop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Order"
+        android:textColor="#4B3518"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgPlaceholder"
+        android:layout_width="49dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="28dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/seller_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- frame  Buttons -->
+    <View
+        android:id="@+id/bgBottom5"
+        android:layout_width="335dp"
+        android:layout_height="163dp"
+        android:layout_marginTop="260dp"
+        android:background="@drawable/bg_brown_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/bgTop5"
+        android:layout_width="335dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="320dp"
+        android:background="@drawable/bg_cream_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:text="ALISYA                       DONE"
+        android:textColor="#FBEDDC"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/bgBottom5"
+        app:layout_constraintTop_toTopOf="@+id/bgBottom5" />
+
+    <TextView
+        android:id="@+id/tvDetails5"
+        android:layout_width="302dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="328dp"
+        android:text="CROISSANT                                     X1  \n\n                         Total payment = RM7"
+        android:textColor="#5A4F41"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnChat"
+        android:layout_width="133dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="404dp"
+        android:background="@drawable/bg_white_seller_rounded"
+        android:text="CHAT CUSTOMER"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/bgTop5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/button2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="38dp"
+        android:text="."
+        android:background="@drawable/more_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Bottom Nav Buttons -->
+
+    <View
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="62dp"
+        android:background="#ECDFCE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvShop"
+        android:layout_width="46dp"
+        android:layout_height="23dp"
+        android:layout_marginEnd="24dp"
+        android:text="Shop"
+        android:textColor="#4B3518"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
+        app:layout_constraintEnd_toStartOf="@+id/tvUpload"
+        app:layout_constraintTop_toTopOf="@+id/bottomNav"
+        app:layout_constraintVertical_bias="0.538" />
+
+    <TextView
+        android:id="@+id/tvUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="4dp"
+        android:text="Upload"
+        android:textColor="#4B3518"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
+        app:layout_constraintEnd_toStartOf="@+id/tvUpload2"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomNav" />
+
+    <TextView
+        android:id="@+id/tvHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="172dp"
+        android:text="Home"
+        android:textColor="#4B3518"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
+        app:layout_constraintEnd_toStartOf="@+id/tvChat"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomNav"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <TextView
+        android:id="@+id/tvChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="248dp"
+        android:text="Chat"
+        android:textColor="#4B3518"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
+        app:layout_constraintEnd_toStartOf="@+id/tvDonate"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomNav"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <TextView
+        android:id="@+id/tvDonate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="320dp"
+        android:text="Donate"
+        android:textColor="#4B3518"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomNav"
+        app:layout_constraintVertical_bias="0.525" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="145dp"
+        android:layout_height="49dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bgTop5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toEndOf="@+id/btnChat"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetails5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
