@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppNovaVolunteer">
         <activity
+            android:name=".RewardsActivity"
+            android:exported="false" />
+        <activity
             android:name=".SuccessfulActivity"
             android:exported="false" />
         <activity
