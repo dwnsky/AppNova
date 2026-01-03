@@ -289,6 +289,18 @@
 
             <!-- Set width to 0dp and weight to 1 for each item -->
             <TextView
+                android:id="@+id/tvHome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Home"
+                android:textColor="#4B3518"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/tvShop"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -301,25 +313,13 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvUpload"
+                android:id="@+id/tvOrder"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_gravity="center_vertical"
-                android:text="Upload"
-                android:textColor="#4B3518"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvHome"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_gravity="center_vertical"
-                android:text="Home"
+                android:text="Orders"
                 android:textColor="#4B3518"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -336,17 +336,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvDonate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_gravity="center_vertical"
-                android:text="Donate"
-                android:textColor="#4B3518"
-                android:textSize="16sp"
-                android:textStyle="bold" />
         </LinearLayout>
 
 
