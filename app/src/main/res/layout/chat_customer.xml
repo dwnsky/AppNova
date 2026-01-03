@@ -30,7 +30,7 @@
 
         <!-- CORRECTED TEXTVIEW FOR PERFECT CENTERING -->
         <TextView
-            android:id="@+id/tvMyShop"
+            android:id="@+id/tvShopName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -94,12 +94,12 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/userName1"
+                    android:id="@+id/shopName1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="8dp"
-                    android:text="Abdul Malik"
+                    android:text="Dona Bakehouse"
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -113,12 +113,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="8dp"
-                    android:text="Hi...It seem u forgot my..."
+                    android:text="Hi, your order is ready!"
                     android:textColor="#666666"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toStartOf="@+id/badge1"
-                    app:layout_constraintStart_toStartOf="@+id/userName1"
-                    app:layout_constraintTop_toBottomOf="@+id/userName1" />
+                    app:layout_constraintStart_toStartOf="@+id/shopName1"
+                    app:layout_constraintTop_toBottomOf="@+id/shopName1" />
 
                 <TextView
                     android:id="@+id/badge1"
@@ -153,11 +153,11 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/userName2"
+                    android:id="@+id/shopName2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:text="Siti Zulaikha"
+                    android:text="Ayam Gepuk ABC"
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -170,12 +170,12 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Thank you seller &lt;33"
+                    android:text="Thank you for purchasing"
                     android:textColor="#666666"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/userName2"
-                    app:layout_constraintTop_toBottomOf="@+id/userName2" />
+                    app:layout_constraintStart_toStartOf="@+id/shopName2"
+                    app:layout_constraintTop_toBottomOf="@+id/shopName2" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- Chat Item 3 -->
@@ -196,11 +196,11 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/userName3"
+                    android:id="@+id/shopName3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:text="Qistina Raisah"
+                    android:text="Joyah Grocer"
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -213,12 +213,12 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="I got my redeemed. TQ."
+                    android:text="Please redeem by scanning..."
                     android:textColor="#666666"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/userName3"
-                    app:layout_constraintTop_toBottomOf="@+id/userName3" />
+                    app:layout_constraintStart_toStartOf="@+id/shopName3"
+                    app:layout_constraintTop_toBottomOf="@+id/shopName3" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- Chat Item 4 -->
@@ -239,11 +239,11 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/userName4"
+                    android:id="@+id/shopName4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:text="Aqil Aiman"
+                    android:text="SYJ Pastry"
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -256,55 +256,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Got it. Thanks."
+                    android:text="Yes, we can do that."
                     android:textColor="#666666"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/userName4"
-                    app:layout_constraintTop_toBottomOf="@+id/userName4" />
+                    app:layout_constraintStart_toStartOf="@+id/shopName4"
+                    app:layout_constraintTop_toBottomOf="@+id/shopName4" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- Chat Item 5 -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_cream_register_login_rounded"
-                android:padding="16dp">
-
-                <ImageView
-                    android:id="@+id/avatar5"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/avatar"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/userName5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="Wong Lai King"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/avatar5"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/lastMessage5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Yes..I got the refund. Thanks"
-                    android:textColor="#666666"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/userName5"
-                    app:layout_constraintTop_toBottomOf="@+id/userName5" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
