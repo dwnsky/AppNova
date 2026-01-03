@@ -121,7 +121,7 @@
                     android:id="@+id/avatar1"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_user_avatar"
+                    android:src="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -181,7 +181,7 @@
                     android:id="@+id/avatar2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_user_avatar"
+                    android:src="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -225,7 +225,7 @@
                     android:id="@+id/avatar3"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_user_avatar"
+                    android:src="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -269,7 +269,7 @@
                     android:id="@+id/avatar4"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_user_avatar"
+                    android:src="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -312,7 +312,7 @@
                     android:id="@+id/avatar5"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_user_avatar"
+                    android:src="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -350,7 +350,7 @@
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:background="#FFFFFF"
+        android:background="#FDF7EB"
         android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -366,16 +366,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/iconShop"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_shop"
-                app:layout_constraintBottom_toTopOf="@+id/labelShop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed" />
 
             <TextView
                 android:id="@+id/labelShop"
@@ -383,11 +373,11 @@
                 android:layout_height="wrap_content"
                 android:text="Shop"
                 android:textColor="#666666"
-                android:textSize="10sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iconShop" />
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Upload -->
@@ -400,16 +390,6 @@
             app:layout_constraintStart_toEndOf="@+id/navShop"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/iconUpload"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_upload"
-                app:layout_constraintBottom_toTopOf="@+id/labelUpload"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed" />
 
             <TextView
                 android:id="@+id/labelUpload"
@@ -417,11 +397,11 @@
                 android:layout_height="wrap_content"
                 android:text="Upload"
                 android:textColor="#666666"
-                android:textSize="10sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iconUpload" />
+                app:layout_constraintTop_toTopOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Home -->
@@ -437,7 +417,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/home"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -454,16 +434,6 @@
             app:layout_constraintStart_toEndOf="@+id/navHome"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/iconOrder"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_order"
-                app:layout_constraintBottom_toTopOf="@+id/labelOrder"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed" />
 
             <TextView
                 android:id="@+id/labelOrder"
@@ -471,11 +441,11 @@
                 android:layout_height="wrap_content"
                 android:text="Order"
                 android:textColor="#666666"
-                android:textSize="10sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iconOrder" />
+                app:layout_constraintTop_toTopOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Chat -->
@@ -488,16 +458,6 @@
             app:layout_constraintStart_toEndOf="@+id/navOrder"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/iconChat"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_chat"
-                app:layout_constraintBottom_toTopOf="@+id/labelChat"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed" />
 
             <TextView
                 android:id="@+id/labelChat"
@@ -505,12 +465,12 @@
                 android:layout_height="wrap_content"
                 android:text="Chat"
                 android:textColor="#000000"
-                android:textSize="10sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iconChat" />
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
