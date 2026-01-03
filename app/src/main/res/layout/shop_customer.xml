@@ -1,14 +1,410 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <!-- Top Bar -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Percubaan"
-        tools:layout_editor_absoluteX="194dp"
-        tools:layout_editor_absoluteY="313dp" />
+        android:background="#FFFFFF"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="Menu"
+            android:src="@drawable/more_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvShopName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Dona Bakehouse"
+            android:textColor="#4B3518"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imgPlaceholder"
+            app:layout_constraintStart_toEndOf="@+id/menuIcon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgPlaceholder"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="Menu"
+            android:src="@drawable/dona_bakery"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Main Scrolling Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- ========== CARD 1: Croissant ========== -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_croissant3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <View
+                    android:id="@+id/bgBottom53"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_brown_rounded"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tvTitle53"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Croissant"
+                    android:textColor="#FBEDDC"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <View
+                    android:id="@+id/bgTop53"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_cream_rounded"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitle53" />
+                <TextView
+                    android:id="@+id/tvDetails53"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Uploaded: 10/12/2025\nBest before: 22/12/2025\nRM10.00 RM6.00\n40% OFF!"
+                    android:textColor="#5A4F41"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/bgTop53"
+                    app:layout_constraintEnd_toStartOf="@+id/imgProduct53"
+                    app:layout_constraintStart_toStartOf="@id/bgTop53"
+                    app:layout_constraintTop_toTopOf="@id/bgTop53" />
+                <ImageView
+                    android:id="@+id/imgProduct53"
+                    android:layout_width="98dp"
+                    android:layout_height="99dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/croissant"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="@id/bgTop53"
+                    app:layout_constraintEnd_toEndOf="@id/bgTop53"
+                    app:layout_constraintTop_toTopOf="@id/bgTop53" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- ========== CARD 2: Pain Au Chocolat ========== -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_pain_au_chocolat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_croissant3">
+
+                <View
+                    android:id="@+id/bgBottom8"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_brown_rounded"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tvTitle8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Pain Au Chocolat"
+                    android:textColor="#FBEDDC"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <View
+                    android:id="@+id/bgTop8"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_cream_rounded"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitle8" />
+                <TextView
+                    android:id="@+id/tvDetails8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Uploaded: 10/12/2025\nBest before: 22/12/2025\nRM10.00 RM6.00\n40% OFF!"
+                    android:textColor="#5A4F41"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/bgTop8"
+                    app:layout_constraintEnd_toStartOf="@+id/imgProduct8"
+                    app:layout_constraintStart_toStartOf="@id/bgTop8"
+                    app:layout_constraintTop_toTopOf="@id/bgTop8" />
+                <ImageView
+                    android:id="@+id/imgProduct8"
+                    android:layout_width="98dp"
+                    android:layout_height="99dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/pain_au_chocolat"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="@id/bgTop8"
+                    app:layout_constraintEnd_toEndOf="@id/bgTop8"
+                    app:layout_constraintTop_toTopOf="@id/bgTop8" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- ========== CARD 3: Baguette ========== -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_baguette"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_pain_au_chocolat">
+
+                <View
+                    android:id="@+id/bgBottom_baguette"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_brown_rounded"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tvTitle_baguette"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Baguette"
+                    android:textColor="#FBEDDC"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <View
+                    android:id="@+id/bgTop_baguette"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_cream_rounded"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitle_baguette" />
+                <TextView
+                    android:id="@+id/tvDetails_baguette"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Uploaded: 11/12/2025\nBest before: 23/12/2025\nRM8.00 RM5.00\n38% OFF!"
+                    android:textColor="#5A4F41"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/bgTop_baguette"
+                    app:layout_constraintEnd_toStartOf="@+id/imgProduct_baguette"
+                    app:layout_constraintStart_toStartOf="@id/bgTop_baguette"
+                    app:layout_constraintTop_toTopOf="@id/bgTop_baguette" />
+                <ImageView
+                    android:id="@+id/imgProduct_baguette"
+                    android:layout_width="98dp"
+                    android:layout_height="99dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/baguette"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="@id/bgTop_baguette"
+                    app:layout_constraintEnd_toEndOf="@id/bgTop_baguette"
+                    app:layout_constraintTop_toTopOf="@id/bgTop_baguette" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!-- ========== CARD 4: Sourdough ========== -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_sourdough"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_baguette">
+
+                <View
+                    android:id="@+id/bgBottom_sourdough"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_brown_rounded"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tvTitle_sourdough"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Sourdough"
+                    android:textColor="#FBEDDC"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <View
+                    android:id="@+id/bgTop_sourdough"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_cream_rounded"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitle_sourdough" />
+                <TextView
+                    android:id="@+id/tvDetails_sourdough"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Uploaded: 11/12/2025\nBest before: 23/12/2025\nRM8.00 RM5.00\n38% OFF!"
+                    android:textColor="#5A4F41"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/bgTop_sourdough"
+                    app:layout_constraintEnd_toStartOf="@+id/imgProduct_sourdough"
+                    app:layout_constraintStart_toStartOf="@id/bgTop_sourdough"
+                    app:layout_constraintTop_toTopOf="@id/bgTop_sourdough" />
+                <ImageView
+                    android:id="@+id/imgProduct_sourdough"
+                    android:layout_width="98dp"
+                    android:layout_height="99dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/sourdough"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="@id/bgTop_sourdough"
+                    app:layout_constraintEnd_toEndOf="@id/bgTop_sourdough"
+                    app:layout_constraintTop_toTopOf="@id/bgTop_sourdough" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <!-- Bottom Nav Buttons -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="62dp"
+        android:background="#ECDFCE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvHome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Home"
+                android:textColor="#4B3518"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvShop"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Shop"
+                android:textColor="#4B3518"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvOrder"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Order"
+                android:textColor="#4B3518"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvChat"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Chat"
+                android:textColor="#4B3518"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

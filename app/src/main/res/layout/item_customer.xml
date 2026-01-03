@@ -79,7 +79,6 @@
                 app:layout_constraintTop_toTopOf="parent">
 
 
-
                 <View
                     android:id="@+id/bgBottom53"
                     android:layout_width="0dp"
@@ -104,13 +103,13 @@
 
                 <View
                     android:id="@+id/bgTop53"
-                    android:layout_width="413dp"
-                    android:layout_height="636dp"
+                    android:layout_width="417dp"
+                    android:layout_height="688dp"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/bg_cream_rounded"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvTitle53"
                     app:layout_constraintVertical_bias="0.0" />
@@ -119,30 +118,38 @@
                     android:id="@+id/imgProduct53"
                     android:layout_width="357dp"
                     android:layout_height="335dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="72dp"
                     android:background="@drawable/croissant"
+                    android:contentDescription="Croissant"
                     android:scaleType="centerCrop"
-                    tools:layout_editor_absoluteX="30dp"
-                    tools:layout_editor_absoluteY="72dp" />
+                    app:layout_constraintStart_toStartOf="@+id/bgBottom53"
+                    app:layout_constraintTop_toTopOf="@+id/bgBottom53" />
 
                 <TextView
                     android:id="@+id/tvDetails53"
                     android:layout_width="236dp"
                     android:layout_height="100dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="428dp"
                     android:text="Uploaded: 10/12/2025\nBest before: 22/12/2025\nRM10.00 RM6.00\n40% OFF!"
                     android:textColor="#5A4F41"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    tools:layout_editor_absoluteX="30dp"
-                    tools:layout_editor_absoluteY="428dp" />
+                    app:layout_constraintStart_toStartOf="@+id/bgBottom53"
+                    app:layout_constraintTop_toTopOf="@+id/bgBottom53" />
 
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
-                    app:srcCompat="@drawable/substract_button"
-                    tools:layout_editor_absoluteX="23dp"
-                    tools:layout_editor_absoluteY="537dp" />
+                <Button
+                    android:id="@+id/btConfirm"
+                    android:layout_width="115dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#4B3518"
+                    android:insetTop="10dp"
+                    android:text="CONFIRM"
+                    app:layout_constraintStart_toStartOf="@+id/bgTop53"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDetails53" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -165,6 +172,17 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvHome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Home"
+                android:textColor="#4B3518"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/tvShop"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -175,25 +193,16 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
             <TextView
-                android:id="@+id/tvUpload"
+                android:id="@+id/tvOrder"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Upload"
+                android:text="Order"
                 android:textColor="#4B3518"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-            <TextView
-                android:id="@+id/tvHome"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Home"
-                android:textColor="#4B3518"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/tvChat"
                 android:layout_width="0dp"
@@ -201,16 +210,6 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Chat"
-                android:textColor="#4B3518"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/tvDonate"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Donate"
                 android:textColor="#4B3518"
                 android:textSize="16sp"
                 android:textStyle="bold" />
