@@ -22,7 +22,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="Menu"
-            android:src="@drawable/ic_menu"
+            android:src="@drawable/more_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -229,7 +229,7 @@
 
                 <!-- Chat Button -->
                 <Button
-                    android:id="@+id/btnChatCustomer1"
+                    android:id="@+id/btnChat"
                     android:layout_width="wrap_content"
                     android:layout_height="36dp"
                     android:layout_marginStart="12dp"
@@ -248,9 +248,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="12dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/btnChatCustomer1"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnChat"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/btnChatCustomer1">
+                    app:layout_constraintTop_toTopOf="@+id/btnChat">
 
                     <ImageView
                         android:id="@+id/star1_1"

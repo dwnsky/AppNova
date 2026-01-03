@@ -19,6 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AppNova_seller"
+rootProject.name = "MADAppnova"
 include(":app")
- 

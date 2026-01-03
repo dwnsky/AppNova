@@ -7,84 +7,257 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/order_button"
-        android:layout_width="123dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="76dp"
-        android:background="@drawable/bg_cream_rounded"
-        android:text="Order"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMyShop" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/add_item_button"
-        android:layout_width="123dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_dark_silver_rounded"
-        android:text="Add Item"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMyShop" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/regular_product"
-        android:layout_width="150dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_cream_rounded"
-        android:text="Regular Product"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_item_button" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bulk_amount"
-        android:layout_width="150dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/bg_dark_silver_rounded"
-        android:text="Bulk Amount"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/picture"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/order_button"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/tvMyShop"
-        android:layout_width="wrap_content"
+    <!-- Top Bar -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="60dp"
-        android:text="My Shop"
-        android:textColor="#4B3518"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imgPlaceholder"
-        android:layout_width="49dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="28dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/seller_id"
+        android:background="#FFFFFF"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="Menu"
+            android:src="@drawable/more_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMyShop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="My Shop"
+            android:textColor="#4B3518"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imgPlaceholder"
+            app:layout_constraintStart_toEndOf="@+id/menuIcon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgPlaceholder"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="Menu"
+            android:src="@drawable/dona_bakery"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Main Scrolling Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Buttons: Add Item / Order -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/add_item_button"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_dark_silver_rounded"
+                android:text="Add Item"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/order_button"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/order_button"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_cream_rounded"
+                android:text="Order"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/add_item_button"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Buttons: Regular Product / Bulk Amount -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/regular_product"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_cream_rounded"
+                android:text="Regular Product"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/bulk_amount"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_item_button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bulk_amount"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_dark_silver_rounded"
+                android:text="Bulk Amount"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@id/regular_product"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/regular_product" />
+
+            <!-- Add Photos Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/picture"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_brown_rounded"
+                android:text="Add Photos"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/regular_product" />
+
+            <!-- Product Details Card -->
+            <!-- Product Details Card -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/productCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/picture">
+
+                <!-- Brown background that defines the card's full size -->
+                <View
+                    android:id="@+id/bgBottom"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_brown_rounded"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Add a Title to the card for better UI -->
+                <TextView
+                    android:id="@+id/cardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Product Details"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <!--
+                    CORRECTED SECTION:
+                    Cream background is now constrained to the content inside it.
+                -->
+                <View
+                    android:id="@+id/bgTop"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_cream_rounded"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardTitle" />
+
+
+                <!-- Form fields are now constrained inside the cream background -->
+                <TextView
+                    android:id="@+id/form_labels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:lineSpacingMultiplier="1.8"
+                    android:text="DESCRIPTION\n\nBEST BEFORE\n\nORIGINAL PRICE\n\nDISCOUNTED PRICE"
+                    android:textColor="#4B3518"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/bgTop"
+                    app:layout_constraintTop_toTopOf="@id/bgTop" />
+
+                <EditText
+                    android:id="@+id/form_inputs"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="top|start"
+                    android:hint="Enter details here..."
+                    android:inputType="textMultiLine"
+                    android:lineSpacingMultiplier="1.8"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:textColor="#4B3518"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/form_labels"
+                    app:layout_constraintEnd_toEndOf="@id/bgTop"
+                    app:layout_constraintStart_toEndOf="@id/form_labels"
+                    app:layout_constraintTop_toTopOf="@id/form_labels" />
+
+                <!-- Add a bottom constraint to the bgTop view to give it height -->
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/form_labels"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/bgTop"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <!-- Submit Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSubmit"
+                android:layout_width="0dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_green_rounded"
+                android:text="Submit"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productCard" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <!-- Bottom Nav Buttons -->
 
-    <View
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
         android:layout_height="62dp"
@@ -92,145 +265,76 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" >
 
-    <TextView
-        android:id="@+id/tvShop"
-        android:layout_width="46dp"
-        android:layout_height="23dp"
-        android:layout_marginEnd="24dp"
-        android:text="Shop"
-        android:textColor="#4B3518"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
-        app:layout_constraintEnd_toStartOf="@+id/tvUpload"
-        app:layout_constraintTop_toTopOf="@+id/bottomNav"
-        app:layout_constraintVertical_bias="0.538" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="#ECDFCE">
 
-    <TextView
-        android:id="@+id/tvUpload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="102dp"
-        android:text="Upload"
-        android:textColor="#4B3518"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
-        app:layout_constraintEnd_toStartOf="@+id/tvUpload2"
-        app:layout_constraintHorizontal_bias="0.068"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottomNav"
-        app:layout_constraintVertical_bias="0.525" />
+            <!-- Set width to 0dp and weight to 1 for each item -->
+            <TextView
+                android:id="@+id/tvShop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text="Shop"
+                android:textColor="#4B3518"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tvHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:text="Home"
-        android:textColor="#4B3518"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
-        app:layout_constraintEnd_toStartOf="@+id/tvChat"
-        app:layout_constraintHorizontal_bias="0.326"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottomNav"
-        app:layout_constraintVertical_bias="0.55" />
+            <TextView
+                android:id="@+id/tvUpload"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text="Upload"
+                android:textColor="#4B3518"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tvChat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="248dp"
-        android:text="Chat"
-        android:textColor="#4B3518"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
-        app:layout_constraintEnd_toStartOf="@+id/tvDonate"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottomNav"
-        app:layout_constraintVertical_bias="0.55" />
+            <TextView
+                android:id="@+id/tvHome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text="Home"
+                android:textColor="#4B3518"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tvDonate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="320dp"
-        android:text="Donate"
-        android:textColor="#4B3518"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/bottomNav"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottomNav"
-        app:layout_constraintVertical_bias="0.525" />
+            <TextView
+                android:id="@+id/tvChat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text="Chat"
+                android:textColor="#4B3518"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/productCard1"
-        android:layout_width="333dp"
-        android:layout_height="156dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="408dp"
-        android:background="@drawable/bg_cream_rounded"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/tvDonate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text="Donate"
+                android:textColor="#4B3518"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="DESCRIPTION&#xA;&#xA;BEST BEFORE &#xA;&#xA;ORIGINAL PRICE &#xA;&#xA;DISCOUNTED PRICE"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/picture"
-        android:layout_width="334dp"
-        android:layout_height="157dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/bg_brown_rounded"
-        android:text="Add Photos"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/order_button" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSubmit"
-        android:layout_width="133dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="240dp"
-        android:layout_marginTop="596dp"
-        android:background="@drawable/bg_green_rounded"
-        android:text="Submit"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/button2"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:minHeight="0dp"
-        android:minWidth="0dp"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="38dp"
-        android:text="."
-        android:background="@drawable/more_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

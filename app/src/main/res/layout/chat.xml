@@ -22,7 +22,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="Menu"
-            android:src="@drawable/ic_menu"
+            android:src="@drawable/more_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -113,8 +113,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:background="@drawable/card"
-                android:backgroundTint="#F6DFC2"
+                android:background="@drawable/bg_yellowish_cream_register_login_rounded"
                 android:padding="16dp">
 
                 <ImageView
@@ -173,8 +172,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:background="@drawable/card"
-                android:backgroundTint="#FDF7EB"
+                android:background="@drawable/bg_cream_register_login_rounded"
                 android:padding="16dp">
 
                 <ImageView
@@ -217,8 +215,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:background="@drawable/card"
-                android:backgroundTint="#FDF7EB"
+                android:background="@drawable/bg_cream_register_login_rounded"
                 android:padding="16dp">
 
                 <ImageView
@@ -261,8 +258,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:background="@drawable/card"
-                android:backgroundTint="#FDF7EB"
+                android:background="@drawable/bg_cream_register_login_rounded"
                 android:padding="16dp">
 
                 <ImageView
@@ -304,8 +300,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/card"
-                android:backgroundTint="#FDF7EB"
+                android:background="@drawable/bg_cream_register_login_rounded"
                 android:padding="16dp">
 
                 <ImageView
