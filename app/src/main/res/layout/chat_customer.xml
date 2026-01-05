@@ -28,7 +28,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- CORRECTED TEXTVIEW FOR PERFECT CENTERING -->
         <TextView
             android:id="@+id/tvShopName"
             android:layout_width="0dp"
@@ -55,11 +54,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
-
-
     <!-- Chat List ScrollView -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -78,6 +72,7 @@
 
             <!-- Chat Item 1 -->
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/chat_item_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -137,6 +132,7 @@
 
             <!-- Chat Item 2 -->
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/chat_item_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -180,6 +176,7 @@
 
             <!-- Chat Item 3 -->
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/chat_item_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -223,6 +220,7 @@
 
             <!-- Chat Item 4 -->
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/chat_item_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -267,10 +265,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-
-
     <!-- Bottom Nav Buttons -->
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
@@ -287,9 +282,8 @@
             android:orientation="horizontal"
             android:background="#ECDFCE">
 
-            <!-- Set width to 0dp and weight to 1 for each item -->
             <TextView
-                android:id="@+id/tvHome"
+                android:id="@+id/tvHomeCustomer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -301,7 +295,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvShop"
+                android:id="@+id/tvShopCustomer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -313,7 +307,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvOrder"
+                android:id="@+id/tvOrderCustomer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -325,7 +319,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvChat"
+                android:id="@+id/tvChatCustomer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -337,7 +331,6 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ItemCustomer" />
         <activity android:name=".LoadingPageActivity" />
         <activity android:name=".FrameActivity" />
         <activity android:name=".RegisterPageActivity" />
@@ -29,12 +30,20 @@
         <activity android:name=".ForgotPasswordPage2" />
         <activity android:name=".ForgotPasswordPage3" />
         <activity android:name=".ShopSeller" />
+        <activity android:name=".ShopCustomer" />
+        <activity android:name=".OrderCustomer" />
         <activity android:name=".UploadRegularSeller" />
         <activity android:name=".UploadBulkSeller" />
         <activity android:name=".CurrentOrderSeller" />
         <activity android:name=".PastOrderSeller" />
         <activity android:name=".ChatSeller" />
+        <activity android:name=".ChatCustomer" />
+        <activity android:name=".ChatSingleCustomerActivity" />
+        <activity android:name=".RateCustomer" />
 
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
 
     </application>

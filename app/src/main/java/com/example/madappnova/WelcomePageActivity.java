@@ -62,4 +62,3 @@ public class WelcomePageActivity extends AppCompatActivity {
         finish(); // optional: prevents going back to welcome page
     }
 }
-
