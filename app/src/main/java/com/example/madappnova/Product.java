@@ -19,13 +19,12 @@ public class Product {
     private double discountedPrice;
     private int discountPercentage;
     private String imageUrl;
-    private long uploadedDate;
-    private long bestBeforeDate;
+    private String uploadedDate;
+    private String bestBeforeDate;
     private boolean isActive;
     private int quantityAvailable;
 
     public Product() {
-        this.uploadedDate = System.currentTimeMillis();
         this.isActive = true;
     }
 
@@ -54,11 +53,11 @@ public class Product {
     public String getImageUrl() { return imageUrl; }
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 
-    public long getUploadedDate() { return uploadedDate; }
-    public void setUploadedDate(long uploadedDate) { this.uploadedDate = uploadedDate; }
+    public String getUploadedDate() { return uploadedDate; }
+    public void setUploadedDate(String uploadedDate) { this.uploadedDate = uploadedDate; }
 
-    public long getBestBeforeDate() { return bestBeforeDate; }
-    public void setBestBeforeDate(long bestBeforeDate) { this.bestBeforeDate = bestBeforeDate; }
+    public String getBestBeforeDate() { return bestBeforeDate; }
+    public void setBestBeforeDate(String bestBeforeDate) { this.bestBeforeDate = bestBeforeDate; }
 
     public boolean isActive() { return isActive; }
     public void setActive(boolean active) { isActive = active; }

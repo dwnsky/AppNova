@@ -46,6 +46,7 @@
             android:id="@+id/imgPlaceholder"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:clickable="true"
             android:contentDescription="Menu"
             android:src="@drawable/dona_bakery"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -123,22 +124,46 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/regular_product" />
 
-            <!-- Add Photos Button -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/picture"
+            <!--
+                CORRECTED SECTION:
+                The "Image Name" field is now properly constrained.
+            -->
+            <!--
+    NEW "Image Name" SECTION:
+    Styled as a brown box like the original "Add Photos" button.
+-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/imageNameLayout"
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/bg_brown_rounded"
-                android:text="Add Photos"
-                android:textColor="@color/white"
-                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/regular_product" />
+                app:layout_constraintTop_toBottomOf="@+id/regular_product">
 
-            <!-- Product Details Card -->
-            <!-- Product Details Card -->
+                <EditText
+                    android:id="@+id/etImageName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:hint="Image Name (e.g., croissant)"
+                    android:textColor="@color/white"
+                    android:textColorHint="#E0E0E0"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <!-- Product Details Card is now constrained to the field above it -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/productCard"
                 android:layout_width="0dp"
@@ -146,8 +171,9 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/picture">
+                app:layout_constraintTop_toBottomOf="@+id/imageNameLayout">
 
+                <!-- The rest of your productCard code is correct and remains the same -->
                 <!-- Brown background that defines the card's full size -->
                 <View
                     android:id="@+id/bgBottom"
@@ -158,7 +184,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
                 <!-- Add a Title to the card for better UI -->
                 <TextView
                     android:id="@+id/cardTitle"
@@ -171,12 +196,7 @@
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-
-                <!--
-                    CORRECTED SECTION:
-                    Cream background is now constrained to the content inside it.
-                -->
+                <!-- Cream background that holds the form -->
                 <View
                     android:id="@+id/bgTop"
                     android:layout_width="0dp"
@@ -187,55 +207,99 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cardTitle" />
-
-
-                <!-- Form fields are now constrained inside the cream background -->
-                <TextView
-                    android:id="@+id/form_labels"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:lineSpacingMultiplier="1.8"
-                    android:text="DESCRIPTION\n\nBEST BEFORE\n\nORIGINAL PRICE\n\nDISCOUNTED PRICE"
-                    android:textColor="#4B3518"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/bgTop"
-                    app:layout_constraintTop_toTopOf="@id/bgTop" />
-
-                <EditText
-                    android:id="@+id/form_inputs"
+                <!-- A LinearLayout now correctly stacks all the form fields.-->
+                <LinearLayout
+                    android:id="@+id/formContainer"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@android:color/transparent"
-                    android:gravity="top|start"
-                    android:hint="Enter details here..."
-                    android:inputType="textMultiLine"
-                    android:lineSpacingMultiplier="1.8"
-                    android:paddingTop="0dp"
-                    android:paddingBottom="0dp"
-                    android:textColor="#4B3518"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@id/form_labels"
-                    app:layout_constraintEnd_toEndOf="@id/bgTop"
-                    app:layout_constraintStart_toEndOf="@id/form_labels"
-                    app:layout_constraintTop_toTopOf="@id/form_labels" />
-
-                <!-- Add a bottom constraint to the bgTop view to give it height -->
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="16dp"
-                    app:layout_constraintTop_toBottomOf="@id/form_labels"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
                     app:layout_constraintBottom_toBottomOf="@id/bgTop"
-                    />
-
+                    app:layout_constraintEnd_toEndOf="@id/bgTop"
+                    app:layout_constraintStart_toStartOf="@id/bgTop"
+                    app:layout_constraintTop_toTopOf="@id/bgTop">
+                    <!-- ALL YOUR TextInputLayouts for the form go here -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etProductName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Product Name" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etUploadDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Upload Date (DD/MM/YYYY)" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etBestBefore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Best Before (DD/MM/YYYY)" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etOriginalPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Original Price (RM)"
+                            android:inputType="numberDecimal" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etDiscountedPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Discounted Price (RM)"
+                            android:inputType="numberDecimal" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etDiscountPercent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Discount Percent (%)"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etQuantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Quantity"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
             <!-- Submit Button -->
             <androidx.appcompat.widget.AppCompatButton
@@ -252,8 +316,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/productCard" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.core.widget.NestedScrollView>
+
+
+
 
     <!-- Bottom Nav Buttons -->
 
@@ -323,13 +389,13 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvDonate"
+                android:id="@+id/tvOrder"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_gravity="center_vertical"
-                android:text="Donate"
+                android:text="Order"
                 android:textColor="#4B3518"
                 android:textSize="16sp"
                 android:textStyle="bold" />

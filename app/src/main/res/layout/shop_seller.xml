@@ -45,6 +45,7 @@
             android:id="@+id/imgPlaceholder"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:clickable="true"
             android:contentDescription="Menu"
             android:src="@drawable/dona_bakery"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -53,20 +54,17 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Main Scrolling Content -->
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topBar">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerViewOrder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topBar">
 
             <!-- ============================================== -->
             <!-- ========== ADD ITEM / ORDER BUTTONS ========== -->
@@ -111,146 +109,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/add_item_button" />
 
-            <!-- ========== CARD 1: Croissant ========== -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/card_croissant"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDate">
-
-                <!-- Card content is already well-structured -->
-                <View
-                    android:id="@+id/bgBottom5"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@drawable/bg_brown_rounded"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-                <TextView
-                    android:id="@+id/tvTitle5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Croissant"
-                    android:textColor="#FBEDDC"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-                <View
-                    android:id="@+id/bgTop5"
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/bg_cream_rounded"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvTitle5" />
-                <TextView
-                    android:id="@+id/tvDetails5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="Uploaded: 10/12/2025\nBest before: 22/12/2025\nRM10.00 RM6.00\n40% OFF!"
-                    android:textColor="#5A4F41"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/bgTop5"
-                    app:layout_constraintEnd_toStartOf="@+id/imgProduct5"
-                    app:layout_constraintStart_toStartOf="@id/bgTop5"
-                    app:layout_constraintTop_toTopOf="@id/bgTop5" />
-                <ImageView
-                    android:id="@+id/imgProduct5"
-                    android:layout_width="98dp"
-                    android:layout_height="99dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/croissant"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toBottomOf="@id/bgTop5"
-                    app:layout_constraintEnd_toEndOf="@id/bgTop5"
-                    app:layout_constraintTop_toTopOf="@id/bgTop5" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!-- ========== CARD 2: Pain Au Chocolat ========== -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/card_pain_au_chocolat"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card_croissant">
-
-                <!-- Card content is already well-structured -->
-                <View
-                    android:id="@+id/bgBottom8"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@drawable/bg_brown_rounded"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-                <TextView
-                    android:id="@+id/tvTitle8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Pain Au Chocolat"
-                    android:textColor="#FBEDDC"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-                <View
-                    android:id="@+id/bgTop8"
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/bg_cream_rounded"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvTitle8" />
-                <TextView
-                    android:id="@+id/tvDetails8"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="Uploaded: 10/12/2025\nBest before: 22/12/2025\nRM10.00 RM6.00\n40% OFF!"
-                    android:textColor="#5A4F41"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/bgTop8"
-                    app:layout_constraintEnd_toStartOf="@+id/imgProduct8"
-                    app:layout_constraintStart_toStartOf="@id/bgTop8"
-                    app:layout_constraintTop_toTopOf="@id/bgTop8" />
-                <ImageView
-                    android:id="@+id/imgProduct8"
-                    android:layout_width="98dp"
-                    android:layout_height="99dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/pain_au_chocolat"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toBottomOf="@id/bgTop8"
-                    app:layout_constraintEnd_toEndOf="@id/bgTop8"
-                    app:layout_constraintTop_toTopOf="@id/bgTop8" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewOrder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttons" />
 
 
     <!-- Bottom Nav Buttons -->
@@ -308,13 +180,14 @@
                 android:textColor="#4B3518"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
             <TextView
-                android:id="@+id/tvDonate"
+                android:id="@+id/tvOrder"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Donate"
+                android:text="Order"
                 android:textColor="#4B3518"
                 android:textSize="16sp"
                 android:textStyle="bold" />
