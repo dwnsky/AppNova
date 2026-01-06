@@ -7,7 +7,6 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
-import com.example.madappnova.Chat;
 import java.util.List;
 
 @Dao
@@ -22,21 +21,31 @@ public interface ChatDao {
     @Delete
     void delete(Chat chatMessage);
 
-    @Query("SELECT * FROM chat_messages WHERE (senderId = :userId OR receiverId = :userId) AND userType = :userType ORDER BY timestamp DESC")
-    List<Chat> getChatMessagesByUser(int userId, String userType);
+    // Get all unique conversations for a user (seller or customer)
+    @Query("SELECT * FROM chat_messages WHERE receiverId = :userId " +
+            "GROUP BY senderId ORDER BY timestamp DESC")
+    LiveData<List<Chat>> getChatMessagesByUserLive(int userId);
 
-    @Query("SELECT * FROM chat_messages WHERE (senderId = :userId OR receiverId = :userId) AND userType = :userType ORDER BY timestamp DESC")
-    LiveData<List<Chat>> getChatMessagesByUserLive(int userId, String userType);
+    // Get conversation between two users
+    @Query("SELECT * FROM chat_messages WHERE " +
+            "(senderId = :user1Id AND receiverId = :user2Id) OR " +
+            "(senderId = :user2Id AND receiverId = :user1Id) " +
+            "ORDER BY timestamp ASC")
+    LiveData<List<Chat>> getConversationLive(int user1Id, int user2Id);
 
-    @Query("SELECT * FROM chat_messages WHERE (senderId = :user1Id AND receiverId = :user2Id) OR (senderId = :user2Id AND receiverId = :user1Id) ORDER BY timestamp DESC")
-    List<Chat> getConversation(int user1Id, int user2Id);
+    // Update unread count
+    @Query("UPDATE chat_messages SET unreadCount = 0, isRead = 1 " +
+            "WHERE senderId = :senderId AND receiverId = :receiverId")
+    void markMessagesAsRead(int senderId, int receiverId);
 
-    @Query("UPDATE chat_messages SET unreadCount = :count WHERE senderId = :senderId AND receiverId = :receiverId")
-    void updateUnreadCount(int senderId, int receiverId, int count);
-
-    @Query("SELECT SUM(unreadCount) FROM chat_messages WHERE receiverId = :userId")
-    int getTotalUnreadCount(int userId);
-
+    // Get total unread count
     @Query("SELECT SUM(unreadCount) FROM chat_messages WHERE receiverId = :userId")
     LiveData<Integer> getTotalUnreadCountLive(int userId);
+
+    // Get last message between two users
+    @Query("SELECT * FROM chat_messages WHERE " +
+            "(senderId = :user1Id AND receiverId = :user2Id) OR " +
+            "(senderId = :user2Id AND receiverId = :user1Id) " +
+            "ORDER BY timestamp DESC LIMIT 1")
+    Chat getLastMessage(int user1Id, int user2Id);
 }

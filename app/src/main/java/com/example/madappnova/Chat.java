@@ -26,11 +26,13 @@ public class Chat {
     private String lastMessage;
     private long timestamp;
     private int unreadCount;
-    private String userType; // "Customer" or "Volunteer"
+    private boolean isRead;
+    private String userType; // "Seller" or "Customer"
 
     public Chat() {
         this.timestamp = System.currentTimeMillis();
         this.unreadCount = 0;
+        this.isRead = false;
     }
 
     // Getters and Setters
@@ -54,6 +56,9 @@ public class Chat {
 
     public int getUnreadCount() { return unreadCount; }
     public void setUnreadCount(int unreadCount) { this.unreadCount = unreadCount; }
+
+    public boolean isRead() { return isRead; }
+    public void setRead(boolean read) { isRead = read; }
 
     public String getUserType() { return userType; }
     public void setUserType(String userType) { this.userType = userType; }

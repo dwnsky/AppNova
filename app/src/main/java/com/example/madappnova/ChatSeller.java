@@ -3,66 +3,104 @@ package com.example.madappnova;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class ChatSeller extends AppCompatActivity {
+public class ChatSeller extends AppCompatActivity implements ChatAdapter.OnChatClickListener {
+    private RecyclerView recyclerViewChat;
+    private ChatAdapter adapter;
+    private ChatRepository chatRepository;
+    private SessionManager session;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Enable edge-to-edge display BEFORE super.onCreate() or setContentView()
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         super.onCreate(savedInstanceState);
+
+        // Check if user is logged in
+        session = new SessionManager(this);
+        if (!session.isLoggedIn()) {
+            startActivity(new Intent(this, LoginPageSellerActivity.class));
+            finish();
+            return;
+        }
+
         setContentView(R.layout.chat_seller);
 
-        // --- Window Inset Logic ---
-        // Find your topBar from the layout
-        // --- Window Inset Logic ---
-        // Find your topBar from the layout
+        // Initialize repository
+        chatRepository = new ChatRepository(this.getApplication());
+
+        // Setup window insets
         View topBar = findViewById(R.id.topBar);
-
-        // Listen for insets and apply padding only to the top
         ViewCompat.setOnApplyWindowInsetsListener(topBar, (v, insets) -> {
-            // Get the insets for the system bars (status bar, navigation bar)
-            // THIS IS THE CORRECTED LINE:
             androidx.core.graphics.Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-
-            // Apply the top inset as top padding to the topBar, keeping original L/R/B padding
             v.setPadding(v.getPaddingLeft(), systemBars.top, v.getPaddingRight(), v.getPaddingBottom());
-
-            // Return the insets so other views can use them if needed
             return insets;
         });
 
+        // Setup RecyclerView
+        recyclerViewChat = findViewById(R.id.recyclerViewChat);
+        recyclerViewChat.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new ChatAdapter(this);
+        recyclerViewChat.setAdapter(adapter);
 
-        // Bottom nav (TextViews as buttons)
+        // Get current user ID
+        int userId = session.getUserId();
+
+        // Observe LiveData for real-time updates
+        if (userId != -1) {
+            chatRepository.getChatMessagesByUserLive(userId).observe(this, chats -> {
+                if (chats != null) {
+                    adapter.updateChats(chats);
+                }
+            });
+        }
+
+        // Setup navigation
+        setupNavigation();
+    }
+
+    @Override
+    public void onChatClick(Chat chat) {
+        // Open conversation with the sender
+        Intent intent = new Intent(this, ChatConversation.class);
+        intent.putExtra("other_user_id", chat.getSenderId());
+        intent.putExtra("other_user_name", chat.getSenderName());
+        startActivity(intent);
+    }
+
+    private void setupNavigation() {
+        // Bottom nav
         findViewById(R.id.tvShop).setOnClickListener(v -> {
-            Intent intent = new Intent(ChatSeller.this, ShopSeller.class);
-            startActivity(intent);
+            startActivity(new Intent(ChatSeller.this, ShopSeller.class));
         });
 
         findViewById(R.id.tvUpload).setOnClickListener(v -> {
-            Intent intent = new Intent(ChatSeller.this, UploadRegularSeller.class);
-            startActivity(intent);
+            startActivity(new Intent(ChatSeller.this, UploadRegularSeller.class));
         });
 
         findViewById(R.id.tvHome).setOnClickListener(v -> {
-            Intent intent = new Intent(ChatSeller.this, HomeSellerActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(ChatSeller.this, HomeSellerActivity.class));
         });
 
         findViewById(R.id.tvChat).setOnClickListener(v -> {
-            Intent intent = new Intent(ChatSeller.this, ChatSeller.class);
-            startActivity(intent);
+            // Already on chat page
         });
 
-        findViewById(R.id.tvDonate).setOnClickListener(v -> {
-            Intent intent = new Intent(ChatSeller.this, UploadBulkSeller.class);
-            startActivity(intent);
+        findViewById(R.id.tvOrder).setOnClickListener(v -> {
+            startActivity(new Intent(ChatSeller.this, CurrentOrderSeller.class));
         });
 
+        // Account button
+        ImageView account = findViewById(R.id.imgPlaceholder);
+        account.setOnClickListener(v -> {
+            startActivity(new Intent(ChatSeller.this, AccountActivity.class));
+        });
     }
-
-
 }
