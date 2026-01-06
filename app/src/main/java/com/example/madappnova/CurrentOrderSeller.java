@@ -3,107 +3,138 @@ package com.example.madappnova;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class CurrentOrderSeller extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class CurrentOrderSeller extends AppCompatActivity implements OrderAdapter.OnOrderClickListener {
+    private RecyclerView recyclerViewOrders;
+    private OrderAdapter adapter;
+    private OrderRepository orderRepository;
+    private SessionManager session;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         super.onCreate(savedInstanceState);
+
+        // Check if user is logged in
+        session = new SessionManager(this);
+        if (!session.isLoggedIn()) {
+            startActivity(new Intent(this, LoginPageSellerActivity.class));
+            finish();
+            return;
+        }
+
         setContentView(R.layout.current_order_seller);
 
-        // --- Window Inset Logic ---
-        // Find your topBar from the layout
-        // --- Window Inset Logic ---
-        // Find your topBar from the layout
+        // Initialize repository
+        orderRepository = new OrderRepository(this.getApplication());
+
+        // Setup window insets for edge-to-edge display
         View topBar = findViewById(R.id.topBar);
-
-        // Listen for insets and apply padding only to the top
         ViewCompat.setOnApplyWindowInsetsListener(topBar, (v, insets) -> {
-            // Get the insets for the system bars (status bar, navigation bar)
-            // THIS IS THE CORRECTED LINE:
             androidx.core.graphics.Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-
-            // Apply the top inset as top padding to the topBar, keeping original L/R/B padding
             v.setPadding(v.getPaddingLeft(), systemBars.top, v.getPaddingRight(), v.getPaddingBottom());
-
-            // Return the insets so other views can use them if needed
             return insets;
         });
-        // Top buttons
+
+        // Setup RecyclerView
+        recyclerViewOrders = findViewById(R.id.recyclerViewOrder);
+        recyclerViewOrders.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new OrderAdapter(new ArrayList<>(),this);
+        recyclerViewOrders.setAdapter(adapter);
+
+        int sellerId = session.getUserId();
+
+        if (sellerId != -1) {
+            orderRepository.getCurrentOrdersBySellerLive(sellerId).observe(this, orders -> {
+                if (orders != null) {
+                    adapter.updateOrders(orders);
+                }
+            });
+        }
+
+        // Top bar buttons
         findViewById(R.id.order_button).setOnClickListener(v -> {
-            Intent intent = new Intent(CurrentOrderSeller.this, CurrentOrderSeller.class);
-            startActivity(intent);
+            // Already on this page, no need to navigate
         });
 
         findViewById(R.id.add_item_button).setOnClickListener(v -> {
-            Intent intent = new Intent(CurrentOrderSeller.this, UploadRegularSeller.class);
-            startActivity(intent);
+            startActivity(new Intent(CurrentOrderSeller.this, UploadRegularSeller.class));
         });
 
-        // Top buttons
         findViewById(R.id.current_order).setOnClickListener(v -> {
-            Intent intent = new Intent(CurrentOrderSeller.this, CurrentOrderSeller.class);
-            startActivity(intent);
+            // Already on this page
         });
 
         findViewById(R.id.past_order).setOnClickListener(v -> {
-            Intent intent = new Intent(CurrentOrderSeller.this, PastOrderSeller.class);
-            startActivity(intent);
+            startActivity(new Intent(CurrentOrderSeller.this, PastOrderSeller.class));
         });
 
-        // Submit
-        findViewById(R.id.btnDone).setOnClickListener(v -> {
-            if (!findViewById(R.id.btnDone).isPressed()) {
-                Toast.makeText(this, "You must pressed submit button", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // After validation, go to next page
-            Intent intent = new Intent(CurrentOrderSeller.this, PastOrderSeller.class); // replace with actual next page
-            startActivity(intent);
-        });
-
-        // Submit
-        findViewById(R.id.btnChat).setOnClickListener(v -> {
-            if (!findViewById(R.id.btnChat).isPressed()) {
-                Toast.makeText(this, "You must pressed submit button", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // After validation, go to next page
-            Intent intent = new Intent(CurrentOrderSeller.this, ChatSeller.class); // replace with actual next page
-            startActivity(intent);
-        });
-
-        // Bottom nav (TextViews as buttons)
+        // Bottom navigation
         findViewById(R.id.tvShop).setOnClickListener(v -> {
-            Intent intent = new Intent(CurrentOrderSeller.this, ShopSeller.class);
-            startActivity(intent);
+            startActivity(new Intent(CurrentOrderSeller.this, ShopSeller.class));
         });
 
         findViewById(R.id.tvUpload).setOnClickListener(v -> {
-            Intent intent = new Intent(CurrentOrderSeller.this, UploadRegularSeller.class);
-            startActivity(intent);
+            startActivity(new Intent(CurrentOrderSeller.this, UploadRegularSeller.class));
         });
 
         findViewById(R.id.tvHome).setOnClickListener(v -> {
-            Intent intent = new Intent(CurrentOrderSeller.this, HomeSellerActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(CurrentOrderSeller.this, HomeSellerActivity.class));
         });
 
         findViewById(R.id.tvChat).setOnClickListener(v -> {
-            Intent intent = new Intent(CurrentOrderSeller.this, ChatSeller.class);
-            startActivity(intent);
+            startActivity(new Intent(CurrentOrderSeller.this, ChatSeller.class));
         });
 
-        findViewById(R.id.tvDonate).setOnClickListener(v -> {
-            Intent intent = new Intent(CurrentOrderSeller.this, UploadBulkSeller.class);
-            startActivity(intent);
+        findViewById(R.id.tvOrder).setOnClickListener(v -> {
+            // Already on this page
         });
 
-    }}
+        // Account button
+        ImageView account = findViewById(R.id.imgPlaceholder);
+        account.setOnClickListener(v -> {
+            startActivity(new Intent(CurrentOrderSeller.this, AccountActivity.class));
+        });
+    }
+
+    /**
+     * Handle Done button click - Mark order as completed
+     */
+    @Override
+    public void onDoneClick(Order order, int position) {
+        // Update order status in background
+        // LiveData will automatically refresh the list
+        new Thread(() -> {
+            orderRepository.updateOrderStatus(order.getId(), "Done");
+
+            // Show success message on main thread
+            runOnUiThread(() -> {
+                Toast.makeText(this, "Order completed!", Toast.LENGTH_SHORT).show();
+            });
+        }).start();
+    }
+
+    /**
+     * Handle Chat button click - Open chat with customer
+     */
+    @Override
+    public void onChatClick(Order order) {
+        Intent intent = new Intent(this, ChatSeller.class);
+        intent.putExtra("customer_name", order.getCustomerName());
+        intent.putExtra("customer_id", order.getCustomerId());
+        startActivity(intent);
+    }
+}

@@ -3,37 +3,60 @@ package com.example.madappnova;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class PastOrderSeller extends AppCompatActivity {
+    private RecyclerView recyclerViewOrders;
+    private PastOrderAdapter adapter;
+    private OrderRepository orderRepository;
+    private SessionManager session;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         super.onCreate(savedInstanceState);
+
+        session = new SessionManager(this);
+        if (!session.isLoggedIn()) {
+            startActivity(new Intent(this, LoginPageSellerActivity.class));
+            finish();
+            return;
+        }
         setContentView(R.layout.past_order_seller);
 
-        // --- Window Inset Logic ---
-        // Find your topBar from the layout
-        // --- Window Inset Logic ---
-        // Find your topBar from the layout
+        // Initialize repository
+        orderRepository = new OrderRepository(this.getApplication());
+
         View topBar = findViewById(R.id.topBar);
-
-        // Listen for insets and apply padding only to the top
         ViewCompat.setOnApplyWindowInsetsListener(topBar, (v, insets) -> {
-            // Get the insets for the system bars (status bar, navigation bar)
-            // THIS IS THE CORRECTED LINE:
             androidx.core.graphics.Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-
-            // Apply the top inset as top padding to the topBar, keeping original L/R/B padding
             v.setPadding(v.getPaddingLeft(), systemBars.top, v.getPaddingRight(), v.getPaddingBottom());
-
-            // Return the insets so other views can use them if needed
             return insets;
         });
+
+        recyclerViewOrders = findViewById(R.id.recyclerViewOrder);
+        recyclerViewOrders.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new PastOrderAdapter();
+        recyclerViewOrders.setAdapter(adapter);
+
+        int sellerId = session.getUserId();
+        if (sellerId != -1) {
+            orderRepository.getPastOrdersBySellerLive(sellerId).observe(this, orders -> {
+                if (orders != null) {
+                    adapter.updateOrders(orders);
+                }
+            });
+
+        }
 
         // Top buttons
         findViewById(R.id.order_button).setOnClickListener(v -> {
@@ -57,17 +80,7 @@ public class PastOrderSeller extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // Submit
-        findViewById(R.id.btnChat).setOnClickListener(v -> {
-            if (!findViewById(R.id.btnChat).isPressed()) {
-                Toast.makeText(this, "You must pressed submit button", Toast.LENGTH_SHORT).show();
-                return;
-            }
 
-            // After validation, go to next page
-            Intent intent = new Intent(PastOrderSeller.this, ChatSeller.class); // replace with actual next page
-            startActivity(intent);
-        });
         // Bottom nav (TextViews as buttons)
         findViewById(R.id.tvShop).setOnClickListener(v -> {
             Intent intent = new Intent(PastOrderSeller.this, ShopSeller.class);
@@ -89,10 +102,28 @@ public class PastOrderSeller extends AppCompatActivity {
             startActivity(intent);
         });
 
-        findViewById(R.id.tvDonate).setOnClickListener(v -> {
-            Intent intent = new Intent(PastOrderSeller.this, UploadBulkSeller.class);
+        findViewById(R.id.tvOrder).setOnClickListener(v -> {
+            Intent intent = new Intent(PastOrderSeller.this, CurrentOrderSeller.class);
             startActivity(intent);
         });
 
+        ImageView account = findViewById(R.id.imgPlaceholder);
+
+        account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PastOrderSeller.this, AccountActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
+    public void onChatClick(Order order) {
+        Intent intent = new Intent(this, ChatConversation.class);
+        intent.putExtra("customer_name", order.getCustomerName());
+        intent.putExtra("customer_id", order.getCustomerId());
+        startActivity(intent);
+    }
+
 }
