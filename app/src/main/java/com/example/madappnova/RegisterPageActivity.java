@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.example.madappnova.User;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
@@ -63,32 +63,46 @@ public class RegisterPageActivity extends AppCompatActivity {
 
         // Button click
         btnSignUp.setOnClickListener(v -> {
-            // Optional: validate inputs
-            String name = etName.getText().toString();
-            String email = etEmail.getText().toString();
-            String password = etPassword.getText().toString();
-            String confirmPassword = etConfirmPassword.getText().toString();
+                    // Optional: validate inputs
+                    String name = etName.getText().toString();
+                    String email = etEmail.getText().toString();
+                    String password = etPassword.getText().toString();
+                    String confirmPassword = etConfirmPassword.getText().toString();
 
-            if(name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()){
-                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-                return;
-            }
+                    if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                        Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-            if(!password.equals(confirmPassword)){
-                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
-                return;
-            }
+                    if (!password.equals(confirmPassword)) {
+                        Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-            // Check if user agreed to terms
-            if (!radioButton.isChecked()) {
-                Toast.makeText(this, "You must agree to the terms to continue", Toast.LENGTH_SHORT).show();
-                return;
-            }
+                    // Check if user agreed to terms
+                    if (!radioButton.isChecked()) {
+                        Toast.makeText(this, "You must agree to the terms to continue", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-            // After validation, go to next page
-            Intent intent = new Intent(RegisterPageActivity.this, LoginPageSellerActivity.class); // replace with actual next page
-            startActivity(intent);
-        });
+                    User newUser = new User();
+                    newUser.setName(name);
+                    newUser.setEmail(email);
+                    newUser.setPassword(password);
+                    newUser.setUserType("Seller"); // Hardcoded for this page
+
+                    AppDatabase.databaseWriteExecutor.execute(() -> {
+                        AppDatabase.getDatabase(this).userDao().insert(newUser);
+
+                        runOnUiThread(() -> {
+                            Toast.makeText(this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                            // Go to Login
+                            Intent intent = new Intent(RegisterPageActivity.this, LoginPageSellerActivity.class);
+                            startActivity(intent);
+                            finish();
+                        });
+                    });
+                });
 
         TextView signin = findViewById(R.id.textView15);
 

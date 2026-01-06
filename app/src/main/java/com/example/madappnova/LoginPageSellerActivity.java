@@ -17,11 +17,11 @@ public class LoginPageSellerActivity extends AppCompatActivity {
 
     EditText etEmail2, etPassword2;
     Button btnSignUp2;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page_seller);
 
@@ -50,27 +50,60 @@ public class LoginPageSellerActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Find views
 
+        sessionManager = new SessionManager(this);
+        // Find views
         etEmail2 = findViewById(R.id.etEmail2);
         etPassword2 = findViewById(R.id.etPassword2);
         btnSignUp2 = findViewById(R.id.btnSignUp2);
 
         // Button click
         btnSignUp2.setOnClickListener(v -> {
-            // Optional: validate inputs
-            String email = etEmail2.getText().toString();
-            String password = etPassword2.getText().toString();
+            String email = etEmail2.getText().toString().trim();
+            String password = etPassword2.getText().toString().trim();
 
-            if(email.isEmpty() || password.isEmpty()){
+            if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // After validation, go to next page
-            Intent intent = new Intent(LoginPageSellerActivity.this, HomeSellerActivity.class); // replace with actual next page
-            startActivity(intent);
+            // --- THIS IS THE CORRECTED LOGIC ---
+            AppDatabase.databaseWriteExecutor.execute(() -> {
+                // 1. Find a USER in the database with the matching email and password
+                User user = AppDatabase.getDatabase(getApplicationContext()).userDao().login(email, password);
+
+                // 2. Switch back to the Main Thread to update UI/Session
+                runOnUiThread(() -> {
+                    // 3. Check if a user was found AND if their userType is "Seller"
+                    if (user != null && "Seller".equals(user.getUserType())) {
+                        // SUCCESS: The user is a valid Seller
+
+                        // 4. Save the user's data into the session
+                        sessionManager.createLoginSession(
+                                user.getId(),
+                                user.getName(),
+                                user.getEmail(),
+                                user.getUserType()
+                        );
+
+                        Toast.makeText(LoginPageSellerActivity.this, "Welcome back, " + user.getName(), Toast.LENGTH_SHORT).show();
+
+                        // Navigate to the seller's home page
+                        Intent intent = new Intent(LoginPageSellerActivity.this, HomeSellerActivity.class);
+                        // Clear the activity stack so the user can't press "back" to get to the login page
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish(); // Close the login activity
+
+                    } else {
+                        // FAILURE: Either the credentials are wrong or the user is not a seller
+                        Toast.makeText(LoginPageSellerActivity.this, "Invalid Seller Email or Password", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            });
         });
+
+
 
         TextView forgotPassword = findViewById(R.id.forgotPassword);
 
