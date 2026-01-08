@@ -3,7 +3,8 @@ package com.example.appnovavolunteer;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.appnovavolunteer.databinding.ActivitySuccessfulBinding; // Pastikan nama binding ikut nama fail XML babe
+// Pastikan nama binding ni betul ikut nama file XML success babe
+import com.example.appnovavolunteer.databinding.ActivitySuccessfulBinding;
 
 public class SuccessfulActivity extends AppCompatActivity {
 
@@ -13,36 +14,32 @@ public class SuccessfulActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // 1. Setup View Binding
         binding = ActivitySuccessfulBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // 2. Fungsi: Klik gambar 'successful' (250 Pts) untuk balik ke Home
-        binding.ivFeaturedBanner.setOnClickListener(v -> {
-            // Kita hantar user balik ke HomeActivity
-            Intent intent = new Intent(SuccessfulActivity.this, HomeActivity.class);
+        // 1. Klik banner untuk balik ke Home (Ini OK kalau ID ivFeaturedBanner ada)
+        if (binding.ivFeaturedBanner != null) {
+            binding.ivFeaturedBanner.setOnClickListener(v -> {
+                Intent intent = new Intent(SuccessfulActivity.this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                finish();
+            });
+        }
 
-            // Flag ini akan bersihkan 'stack' page lama supaya tak berat
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-
-            startActivity(intent);
-            finish(); // Tutup page successful ni
+        // 2. PROBLEM: btnRedeem tak ada kat page Success. Kena COMMENT OUT!
+        /* binding.btnRedeem.setOnClickListener(v -> {
+             // Padam atau comment kod ni sebab butang ni kat Home je
         });
+        */
 
-        // 3. Logik Butang Redeem (Jika user nak redeem mata terus)
-        binding.btnRedeem.setOnClickListener(v -> {
-            // Tambah code ke page Redeem di sini jika perlu
-        });
+        // 3. NAV BUTTONS: Kalau page success babe tak ada Bottom Nav, kena buang juga!
+        // Kalau ada Bottom Nav kat XML success, pastikan ID dia betul.
 
-        // 4. Navigasi Bottom Bar (Contoh: Klik Account balik ke Profile)
-        binding.btnAccountNav.setOnClickListener(v -> {
-            // Intent intent = new Intent(this, ProfileActivity.class);
-            // startActivity(intent);
-        });
-
-        // Tambahan: Jika babe nak butang DonationNav pun berfungsi
-        binding.btnDonationNav.setOnClickListener(v -> {
-            finish(); // Ataupun balik ke page donation
-        });
+        if (binding.btnDonationNav != null) {
+            binding.btnDonationNav.setOnClickListener(v -> {
+                finish();
+            });
+        }
     }
 }
