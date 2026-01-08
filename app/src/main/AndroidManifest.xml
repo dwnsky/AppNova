@@ -26,6 +26,7 @@
         <activity android:name=".RegisterPageActivity" />
         <activity android:name=".LoginPageSellerActivity" />
         <activity android:name=".HomeSellerActivity" />
+        <activity android:name=".AccountActivity" />
         <activity android:name=".ForgotPasswordPage1" />
         <activity android:name=".ForgotPasswordPage2" />
         <activity android:name=".ForgotPasswordPage3" />
@@ -41,6 +42,7 @@
         <activity android:name=".ChatSeller" />
         <activity android:name=".ChatCustomer" />
         <activity android:name=".ChatSingleCustomerActivity" />
+        <activity android:name=".ChatConversation" />
 
         <meta-data
             android:name="preloaded_fonts"

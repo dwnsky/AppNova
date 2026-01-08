@@ -5,15 +5,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 public class HomeSellerActivity extends AppCompatActivity {
 
-    Button add_item_button,order_button;
+    Button add_item_button, order_button;
+    private ProductAdapter productAdapter;
+    private ProductRepository productRepository;
+    private SessionManager sessionManager;
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -22,10 +29,6 @@ public class HomeSellerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_seller);
 
-        // --- Window Inset Logic ---
-        // Find your topBar from the layout
-        // --- Window Inset Logic ---
-        // Find your topBar from the layout
         View topBar = findViewById(R.id.topBar);
 
         // Listen for insets and apply padding only to the top
@@ -41,8 +44,27 @@ public class HomeSellerActivity extends AppCompatActivity {
             return insets;
         });
 
+        sessionManager = new SessionManager(this);
+        productRepository = new ProductRepository(getApplication());
 
+        // 1. Setup RecyclerView
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewOrder);
+        productAdapter = new ProductAdapter(this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(productAdapter);
 
+        // 2. Get current seller ID from session
+        int sellerId = sessionManager.getUserId();
+
+        // 3. Load Data from DB linked to this Seller
+        if (sellerId != -1) {
+            // This method in your Repo returns LiveData<List<Product>>
+            productRepository.getProductsBySellerLive(sellerId).observe(this, products -> {
+                if (products != null) {
+                    productAdapter.setProducts(products);
+                }
+            });
+        }
         // Bottom nav (TextViews as buttons)
         findViewById(R.id.tvShop).setOnClickListener(v -> {
             Intent intent = new Intent(HomeSellerActivity.this, ShopSeller.class);
@@ -64,12 +86,21 @@ public class HomeSellerActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        findViewById(R.id.tvDonate).setOnClickListener(v -> {
-            Intent intent = new Intent(HomeSellerActivity.this, UploadBulkSeller.class);
+        findViewById(R.id.tvOrder).setOnClickListener(v -> {
+            Intent intent = new Intent(HomeSellerActivity.this, CurrentOrderSeller.class);
             startActivity(intent);
         });
 
+        ImageView account = findViewById(R.id.imgPlaceholder);
 
+        account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeSellerActivity.this, AccountActivity.class);
+                startActivity(intent);
+            }
+        });
 
-    }}
+    }
+}
 

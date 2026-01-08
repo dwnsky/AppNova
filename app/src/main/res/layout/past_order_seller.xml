@@ -47,6 +47,7 @@
             android:id="@+id/imgPlaceholder"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:clickable="true"
             android:contentDescription="Menu"
             android:src="@drawable/dona_bakery"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -55,292 +56,85 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewOrder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topBar">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_item_button"
+            android:layout_width="0dp"
+            android:layout_height="85dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_cream_rounded"
+            android:text="Add Item"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/order_button"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Buttons: Add Item / Order -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/add_item_button"
-                android:layout_width="0dp"
-                android:layout_height="85dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/bg_cream_rounded"
-                android:text="Add Item"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/order_button"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/order_button"
+            android:layout_width="0dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_dark_silver_rounded"
+            android:text="Order"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/add_item_button"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/order_button"
-                android:layout_width="0dp"
-                android:layout_height="85dp"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/bg_dark_silver_rounded"
-                android:text="Order"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/add_item_button"
-                app:layout_constraintTop_toTopOf="parent" />
+        <!-- Buttons: Current Order / Past Order -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/current_order"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_cream_rounded"
+            android:text="Current Order"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/past_order"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_item_button" />
 
-            <!-- Buttons: Current Order / Past Order -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/current_order"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/bg_cream_rounded"
-                android:text="Current Order"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/past_order"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_item_button" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/past_order"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/bg_dark_silver_rounded"
-                android:text="Past Order"
-                android:textStyle="bold"
-                app:layout_constraintBaseline_toBaselineOf="@id/current_order"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/current_order" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/past_order"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_dark_silver_rounded"
+            android:text="Past Order"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/current_order"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/current_order" />
 
 
-            <!-- ========== ORDER CARD 1: ALISYA ========== -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/card_deena"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:layout_constraintTop_toBottomOf="@id/current_order"
-                tools:layout_editor_absoluteX="16dp">
 
-                <!-- Brown background that defines the card's full size -->
-                <View
-                    android:id="@+id/bgBottom1"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@drawable/bg_brown_rounded"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <!-- Customer Name -->
-                <TextView
-                    android:id="@+id/tvCustomerName1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="DEENA"
-                    android:textColor="#FBEDDC"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/tvOrderStatus1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <!-- Order Status -->
-                <TextView
-                    android:id="@+id/tvOrderStatus1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:text="DONE"
-                    android:textColor="#FBEDDC"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBaseline_toBaselineOf="@id/tvCustomerName1"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
-                <!-- Cream content background -->
-                <View
-                    android:id="@+id/bgTop1"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/bg_cream_rounded"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCustomerName1" />
-
-                <!-- Order Details Text -->
-                <TextView
-                    android:id="@+id/tvDetails1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="CROISSANT x1\n\nTotal payment = RM7"
-                    android:textColor="#5A4F41"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@id/bgTop1"
-                    app:layout_constraintStart_toStartOf="@id/bgTop1"
-                    app:layout_constraintTop_toTopOf="@id/bgTop1" />
-
-                <!-- Chat Customer Button -->
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnChat"
-                    android:layout_width="0dp"
-                    android:layout_height="58dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/bg_white_seller_rounded"
-                    android:text="CHAT CUSTOMER"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/ratingBar1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDetails1" />
-
-                <RatingBar
-                    android:id="@+id/ratingBar1"
-                    android:layout_width="145dp"
-                    android:layout_height="49dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/bgTop1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/btnChat"
-                    app:layout_constraintTop_toBottomOf="@+id/tvDetails1" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <!-- ========== ORDER CARD 2: DAWNA ========== -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/card_sakinah"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card_deena">
-                <!-- Structure this card exactly like the one above -->
-
-                <View
-                    android:id="@+id/bgBottom2"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@drawable/bg_brown_rounded"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <!-- Customer Name -->
-                <TextView
-                    android:id="@+id/tvCustomerName2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="SAKINAH"
-                    android:textColor="#FBEDDC"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/tvOrderStatus2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <!-- Order Status -->
-                <TextView
-                    android:id="@+id/tvOrderStatus2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:text="DONE"
-                    android:textColor="#FBEDDC"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBaseline_toBaselineOf="@id/tvCustomerName2"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
-                <!-- Cream content background -->
-                <View
-                    android:id="@+id/bgTop2"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/bg_cream_rounded"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCustomerName2" />
-
-                <!-- Order Details Text -->
-                <TextView
-                    android:id="@+id/tvDetails2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="PAIN AU CHOCOLAT x1\n\nTotal payment = RM7"
-                    android:textColor="#5A4F41"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@id/bgTop2"
-                    app:layout_constraintStart_toStartOf="@id/bgTop2"
-                    app:layout_constraintTop_toTopOf="@id/bgTop2" />
-
-                <!-- Chat Customer Button -->
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnChat"
-                    android:layout_width="0dp"
-                    android:layout_height="58dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/bg_white_seller_rounded"
-                    android:text="CHAT CUSTOMER"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@id/bgTop2"
-                    app:layout_constraintStart_toStartOf="@id/bgTop2"
-                    app:layout_constraintEnd_toStartOf="@+id/ratingBar2"
-                    app:layout_constraintTop_toBottomOf="@id/tvDetails2" />
-
-                <RatingBar
-                    android:id="@+id/ratingBar2"
-                    android:layout_width="145dp"
-                    android:layout_height="49dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/bgTop2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/btnChat"
-                    app:layout_constraintTop_toBottomOf="@+id/tvDetails2" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewOrder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttons" />
 
     <!-- Bottom Nav Buttons -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -409,13 +203,13 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvDonate"
+                android:id="@+id/tvOrder"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_gravity="center_vertical"
-                android:text="Donate"
+                android:text="Order"
                 android:textColor="#4B3518"
                 android:textSize="16sp"
                 android:textStyle="bold" />
