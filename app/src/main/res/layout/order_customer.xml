@@ -127,7 +127,7 @@
                     app:layout_constraintTop_toTopOf="@id/bgTop53" />
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/RateBtn1"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="36dp"
@@ -208,7 +208,7 @@
                     app:layout_constraintTop_toTopOf="@id/bgTop8" />
 
                 <ImageButton
-                    android:id="@+id/imageButton7"
+                    android:id="@+id/BtnOngoing"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="36dp"
@@ -289,7 +289,7 @@
                     app:layout_constraintTop_toTopOf="@id/bgTop_baguette" />
 
                 <ImageButton
-                    android:id="@+id/imageButton10"
+                    android:id="@+id/BtnDoneRate"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="36dp"
@@ -371,7 +371,7 @@
                     app:layout_constraintTop_toTopOf="@id/bgTop_sourdough" />
 
                 <ImageButton
-                    android:id="@+id/imageButton11"
+                    android:id="@+id/RateBtn4"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="36dp"

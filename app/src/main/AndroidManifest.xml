@@ -32,6 +32,8 @@
         <activity android:name=".ShopSeller" />
         <activity android:name=".ShopCustomer" />
         <activity android:name=".OrderCustomer" />
+        <activity android:name=".RateCustomer" />
+        <activity android:name=".RatedCustomer" />
         <activity android:name=".UploadRegularSeller" />
         <activity android:name=".UploadBulkSeller" />
         <activity android:name=".CurrentOrderSeller" />
@@ -39,7 +41,6 @@
         <activity android:name=".ChatSeller" />
         <activity android:name=".ChatCustomer" />
         <activity android:name=".ChatSingleCustomerActivity" />
-        <activity android:name=".RateCustomer" />
 
         <meta-data
             android:name="preloaded_fonts"

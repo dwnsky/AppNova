@@ -59,43 +59,46 @@ public class ItemCustomer extends AppCompatActivity {
 
     private void setupClickListeners() {
         // Menu Icon Click
-        menuIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO: Open menu/drawer
-                Toast.makeText(ItemCustomer.this, "Menu clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
+        if (menuIcon != null) {
+            menuIcon.setOnClickListener(v -> Toast.makeText(ItemCustomer.this, "Menu clicked", Toast.LENGTH_SHORT).show());
+        }
 
         // Confirm Button Click
-        btConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO: Handle confirm action (add to cart, purchase, etc.)
-                Toast.makeText(ItemCustomer.this, "Order confirmed!", Toast.LENGTH_SHORT).show();
-            }
-        });
+        if (btConfirm != null) {
+            btConfirm.setOnClickListener(v -> Toast.makeText(ItemCustomer.this, "Order confirmed!", Toast.LENGTH_SHORT).show());
+        }
 
         // Bottom nav (TextViews as buttons)
-        findViewById(R.id.tvHomeCustomer).setOnClickListener(v -> {
-            Intent intent = new Intent(ItemCustomer.this, ItemCustomer.class);
-            startActivity(intent);
-        });
+        if (tvHomeCustomer != null) {
+            tvHomeCustomer.setOnClickListener(v -> {
+                // Already on Home - do nothing or refresh
+            });
+        }
 
-        findViewById(R.id.tvShopCustomer).setOnClickListener(v -> {
-            Intent intent = new Intent(ItemCustomer.this, ShopCustomer.class);
-            startActivity(intent);
-        });
+        if (tvShopCustomer != null) {
+            tvShopCustomer.setOnClickListener(v -> navigateToActivity(ShopCustomer.class));
+        }
 
-        findViewById(R.id.tvOrderCustomer).setOnClickListener(v -> {
-            Intent intent = new Intent(ItemCustomer.this, OrderCustomer.class);
-            startActivity(intent);
-        });
+        if (tvOrderCustomer != null) {
+            tvOrderCustomer.setOnClickListener(v -> navigateToActivity(OrderCustomer.class));
+        }
 
-        findViewById(R.id.tvChatCustomer).setOnClickListener(v -> {
-            Intent intent = new Intent(ItemCustomer.this, ChatCustomer.class);
-            startActivity(intent);
-        });
+        if (tvChatCustomer != null) {
+            tvChatCustomer.setOnClickListener(v -> navigateToActivity(ChatCustomer.class));
+        }
     }
 
+    private void navigateToActivity(Class<?> targetActivity) {
+        Intent intent = new Intent(ItemCustomer.this, targetActivity);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (tvHomeCustomer != null) {
+            tvHomeCustomer.setTextColor(getResources().getColor(android.R.color.black));
+        }
+    }
 }
