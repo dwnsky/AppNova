@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "30727893744",
+    "project_id": "appnova-3b2d7",
+    "storage_bucket": "appnova-3b2d7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30727893744:android:5b8406f1a02c2f958c0835",
+        "android_client_info": {
+          "package_name": "com.example.appnova"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDF5_m_b0RJgWuX8DhHB2kqXO_kgElD45c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
