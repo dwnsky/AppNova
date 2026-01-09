@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/TVRegisterTitle"
+        android:layout_width="199dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="132dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Let's Create Account"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@color/dark_brown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ETRegisterName"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/custome_input"
+        android:drawableStart="@drawable/user"
+        android:drawablePadding="12dp"
+        android:drawableTint="#857A7A"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVRegisterTitle" />
+
+    <EditText
+        android:id="@+id/ETRegisterEmail"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/custome_input"
+        android:drawableStart="@drawable/padlock"
+        android:drawablePadding="12dp"
+        android:drawableTint="#857A7A"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ETRegisterName" />
+
+    <EditText
+        android:id="@+id/ETRegisterPass"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/custome_input"
+        android:drawableStart="@drawable/padlock"
+        android:drawablePadding="12dp"
+        android:drawableTint="#857A7A"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ETRegisterEmail" />
+
+    <EditText
+        android:id="@+id/ETRegisterConfPass"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/custome_input"
+        android:drawableStart="@drawable/padlock"
+        android:drawablePadding="12dp"
+        android:drawableTint="#857A7A"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ETRegisterPass" />
+
+    <Button
+        android:id="@+id/BtnSignUp"
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@color/light_orange"
+        android:text="SIGN UP"
+        android:textColor="#020000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ETRegisterConfPass" />
+
+    <TextView
+        android:id="@+id/TVRegisterAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Already have an account?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BtnSignUp" />
+
+    <TextView
+        android:id="@+id/TVRegisterSignin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Sign in"
+        android:textColor="#2196F3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/TVRegisterAccount"
+        app:layout_constraintTop_toBottomOf="@+id/BtnSignUp" />
+
+    <TextView
+        android:id="@+id/TVRegisterBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="64dp"
+        android:drawableStart="@drawable/back_20dp"
+        android:drawablePadding="5dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Back"
+        android:textSize="20dp"
+        android:textColor="@color/dark_brown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

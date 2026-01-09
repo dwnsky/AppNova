@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeCustomerActivity">
+
+    <TextView
+        android:id="@+id/TVHomeLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="70dp"
+        android:drawableStart="@drawable/location"
+        android:drawableTint="#C21A09"
+        android:drawablePadding="8dp"
+        android:fontFamily="sans-serif-black"
+        android:text="50603, Kuala Lumpur"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ETHomeSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:hint="Search food"
+        android:inputType="text"
+        android:drawableEnd="@drawable/search"
+        android:drawableTint="@color/light_grey"
+        android:background="@drawable/rounded_stroke"
+        app:layout_constraintTop_toBottomOf="@+id/TVHomeLocation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/scrollDistance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/ETHomeSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp">
+
+            <Button
+                android:id="@+id/BtnHomeDistance1"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/distance_selector"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="500m"
+                android:textColor="@color/black"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/BtnHomeDistance2"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/distance_selector"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="1 km"
+                android:textColor="@color/black"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/BtnHomeDistance3"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/distance_selector"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="3 km"
+                android:textColor="@color/black"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/BtnHomeDistance4"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/distance_selector"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="5 km"
+                android:textColor="@color/black"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/BtnHomeDistance5"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/distance_selector"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="10 km"
+                android:textColor="@color/black"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/scrollCategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/scrollDistance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp">
+
+            <Button
+                android:id="@+id/BtnHomeCategory1"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/category_selector"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="Fast food"
+                android:textColor="@color/black"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/BtnHomeCategory2"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:background="@drawable/category_selector"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="Supermarket"
+                android:textColor="@color/black"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/BtnHomeCategory3"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:background="@drawable/category_selector"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="Packed food"
+                android:textColor="@color/black"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/BtnHomeCategory4"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:background="@drawable/category_selector"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="Convenience"
+                android:textColor="@color/black"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFoods"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:padding="12dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/scrollCategory"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <include
+        android:id="@+id/bottomNavCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        layout="@layout/bottom_nav_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
