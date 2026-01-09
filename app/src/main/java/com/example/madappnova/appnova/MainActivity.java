@@ -20,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
         // 🔁 AUTO-REDIRECT LOGIC
         if (mAuth.getCurrentUser() != null) {
             // User already logged in
-            startActivity(new Intent(this, HomeCustomerActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
         } else {
             // User not logged in
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, HomeCustomerActivity.class));
         }
 
         // Kill MainActivity so user can't go back to it
