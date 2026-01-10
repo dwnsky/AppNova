@@ -1,50 +1,44 @@
 package com.example.appnovavolunteer;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
-import android.os.Bundle;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
-
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import androidx.appcompat.app.AppCompatActivity;
 import com.example.appnovavolunteer.databinding.ActivityMapsBinding;
 
-public class MapsActivity extends AppCompatActivity { // Tukar ke AppCompatActivity
+public class MapsActivity extends AppCompatActivity {
 
     private ActivityMapsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // 1. Setup View Binding
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Klik butang Close (X) balik ke page sebelum
-        binding.btnClose.setOnClickListener(v -> finish());
+        // 2. Klik butang Close (X) - Balik ke page sebelum (biasanya LocationAccess)
+        if (binding.btnClose != null) {
+            binding.btnClose.setOnClickListener(v -> finish());
+        }
 
-        // Klik butang Next - Bawa ke page Fridge Search (Imej Marker Hijau/Kelabu)
-        binding.btnNext.setOnClickListener(v -> {
-            // Kita akan buat satu lagi Activity atau tukar imej peta di sini
-            Intent intent = new Intent(MapsActivity.this, FridgeResultActivity.class);
-            startActivity(intent);
-        });
+        // 3. Klik butang Next - Bawa ke page FridgeResultActivity
+        if (binding.btnNext != null) {
+            binding.btnNext.setOnClickListener(v -> {
+                Intent intent = new Intent(MapsActivity.this, FridgeResultActivity.class);
+                startActivity(intent);
+            });
+        }
 
-        // Klik butang Home di Nav Bar
-        binding.bottomNavBar.btnHomeNav.setOnClickListener(v -> {
-            Intent intent = new Intent(MapsActivity.this, HomeActivity.class);
-            startActivity(intent);
-        });
-
-        // Di dalam MapsActivity.java
-        binding.btnNext.setOnClickListener(v -> {
-            Intent intent = new Intent(MapsActivity.this, FridgeResultActivity.class);
-            startActivity(intent);
-        });
+        // 4. Bottom Navigation - Klik Home
+        // Memastikan ID dalam include layout bottom_nav_bar adalah btnHomeNav
+        if (binding.bottomNavBar != null && binding.bottomNavBar.btnHomeNav != null) {
+            binding.bottomNavBar.btnHomeNav.setOnClickListener(v -> {
+                Intent intent = new Intent(MapsActivity.this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+            });
+        }
     }
 }

@@ -20,23 +20,20 @@ public class TaskDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Di dalam TaskDetailActivity.java
-        binding.ivNoodles.setOnClickListener(v -> {
-            Intent intent = new Intent(TaskDetailActivity.this, FoodDetailActivity.class);
-            startActivity(intent);
-        });
-
-        // 2. Inflate binding
+        // FIX: Move this to the top
         binding = ActivityTaskDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // 3. Logik butang Back
+        // Now listeners will work
+        binding.ivNoodles.setOnClickListener(v -> {
+            startActivity(new Intent(this, FoodDetailActivity.class));
+        });
+
         if (binding.btnBack != null) {
-            binding.btnBack.setOnClickListener(v -> {
-                finish(); // Tutup page ini dan balik ke page sebelum
-            });
+            binding.btnBack.setOnClickListener(v -> finish());
         }
+    }
 
 
     }
-}
+

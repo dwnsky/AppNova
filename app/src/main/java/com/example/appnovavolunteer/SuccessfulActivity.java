@@ -3,7 +3,6 @@ package com.example.appnovavolunteer;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-// Pastikan nama binding ni betul ikut nama file XML success babe
 import com.example.appnovavolunteer.databinding.ActivitySuccessfulBinding;
 
 public class SuccessfulActivity extends AppCompatActivity {
@@ -14,31 +13,49 @@ public class SuccessfulActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Initialize Binding
         binding = ActivitySuccessfulBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // 1. Klik banner untuk balik ke Home (Ini OK kalau ID ivFeaturedBanner ada)
+        // 1. Back to Home via Banner/Image
         if (binding.ivFeaturedBanner != null) {
             binding.ivFeaturedBanner.setOnClickListener(v -> {
                 Intent intent = new Intent(SuccessfulActivity.this, HomeActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
             });
         }
 
-        // 2. PROBLEM: btnRedeem tak ada kat page Success. Kena COMMENT OUT!
-        /* binding.btnRedeem.setOnClickListener(v -> {
-             // Padam atau comment kod ni sebab butang ni kat Home je
-        });
-        */
+        // 2. BOTTOM NAVIGATION LOGIC (Following your new ID standard)
 
-        // 3. NAV BUTTONS: Kalau page success babe tak ada Bottom Nav, kena buang juga!
-        // Kalau ada Bottom Nav kat XML success, pastikan ID dia betul.
+        // Home Navigation
+        if (binding.navHome != null) {
+            binding.navHome.setOnClickListener(v -> {
+                Intent intent = new Intent(this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            });
+        }
 
-        if (binding.btnDonationNav != null) {
-            binding.btnDonationNav.setOnClickListener(v -> {
-                finish();
+        // Rewards/Love Navigation
+        if (binding.btnRewardsNav != null) {
+            binding.btnRewardsNav.setOnClickListener(v -> {
+                startActivity(new Intent(this, LocationAccess.class));
+            });
+        }
+
+        // Notification/Chat Navigation
+        if (binding.btnNotif != null) {
+            binding.btnNotif.setOnClickListener(v -> {
+                startActivity(new Intent(this, ChatActivity.class));
+            });
+        }
+
+        // Profile/Account Navigation
+        if (binding.btnProfileNav != null) {
+            binding.btnProfileNav.setOnClickListener(v -> {
+                startActivity(new Intent(this, AccountActivity.class));
             });
         }
     }

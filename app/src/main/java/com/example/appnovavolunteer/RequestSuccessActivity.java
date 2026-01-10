@@ -3,7 +3,6 @@ package com.example.appnovavolunteer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.appnovavolunteer.databinding.ActivityRequestSuccessBinding;
 
@@ -19,26 +18,33 @@ public class RequestSuccessActivity extends AppCompatActivity {
         binding = ActivityRequestSuccessBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // 2. Logik Butang 'Start delivery now'
+        // 2. Logic for 'Start delivery now' -> Goes to SuccessfulActivity
         binding.btnStartDelivery.setOnClickListener(v -> {
-            // Contoh: Bawa user balik ke Map atau senarai tugasan
-            Intent intent = new Intent(RequestSuccessActivity.this, FridgeDetailActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Untuk clear stack supaya tak boleh back ke page success lagi
+            Intent intent = new Intent(RequestSuccessActivity.this, SuccessfulActivity.class);
             startActivity(intent);
+            // finish() prevents the user from coming back to this success screen when pressing back
             finish();
         });
 
-        // 3. Setup Bottom Navigation (Optional tapi digalakkan)
+        // 3. Setup Bottom Navigation
         setupBottomNav();
     }
 
     private void setupBottomNav() {
-        // Kita panggil secara terus dari View kalau Binding masih merajuk
+        // Attempting to find the bottom nav container
         View bottomBar = findViewById(R.id.bottomNav);
         if (bottomBar != null) {
-            bottomBar.findViewById(R.id.btnHomeNav).setOnClickListener(v -> {
-                finish();
-            });
+            // Find the specific home button inside that container
+            View homeBtn = bottomBar.findViewById(R.id.btnHomeNav);
+            if (homeBtn != null) {
+                homeBtn.setOnClickListener(v -> {
+                    // Navigate to Home or simply finish to go back
+                    Intent intent = new Intent(RequestSuccessActivity.this, HomeActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                });
+            }
         }
     }
 }
