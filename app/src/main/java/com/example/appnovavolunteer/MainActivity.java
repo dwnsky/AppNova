@@ -2,60 +2,48 @@ package com.example.appnovavolunteer;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-
-    // 1. Declare the variable
-    TextView tvRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // Ensure this matches your XML filename
+        setContentView(R.layout.activity_main);
 
+        // 1. Inisialisasi View
         TextView tvRegister = findViewById(R.id.tvRegister);
-
-        tvRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(MainActivity.this, "Clicked!", Toast.LENGTH_SHORT).show();
-
-                System.out.println("Register clicked!");
-
-                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        // Inside MainActivity.java onCreate
         Button btnSignIn = findViewById(R.id.btnSignIn);
 
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Show the Toast
-                Toast.makeText(MainActivity.this, "Signing in...", Toast.LENGTH_SHORT).show();
+        // 2. Logik ke Halaman Register
+        if (tvRegister != null) {
+            tvRegister.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            });
+        }
 
-                // Go to Home Page
+        // 3. Logik Sign In ke Home Page (DIPERBAIKI)
+        if (btnSignIn != null) {
+            btnSignIn.setOnClickListener(v -> {
+                Toast.makeText(MainActivity.this, "Sign In Successful!", Toast.LENGTH_SHORT).show();
+
+                // Navigasi ke HomeActivity
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+
+                // FLAG ini sangat penting:
+                // ia akan memadamkan stack Welcome, Role, dan MainActivity
+                // supaya HomeActivity menjadi aktiviti utama yang baru.
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
                 startActivity(intent);
 
-                // Use finish() if you don't want the user to go back to Login using back button
+                // Menutup MainActivity secara kekal untuk sesi ini
                 finish();
-            }
-        });
+            });
+        }
     }
-
 }
-

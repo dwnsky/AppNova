@@ -1,34 +1,43 @@
 package com.example.appnovavolunteer;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.Button;
+import android.widget.TextView; // Tambah import ini
 import androidx.appcompat.app.AppCompatActivity;
 
-    public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_register);
+        // 1. Logik Butang SIGN UP (Sedia ada)
+        Button btnSignUp = findViewById(R.id.btnSignUp);
+        btnSignUp.setOnClickListener(v -> {
+            // Logik pendaftaran anda di sini...
+            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
-            // Link to the "Sign in!" text
-            TextView tvBackToLogin = findViewById(R.id.tvBackToLoginLink);
+        // 2. Logik Pautan "Already have an account? Sign in!"
+        // Hubungkan ID dari XML ke Java
+        TextView tvBackToLogin = findViewById(R.id.tvBackToLoginLink);
 
-            tvBackToLogin.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // 1. Show the "Clicked!" message
-                    Toast.makeText(RegisterActivity.this, "Clicked!", Toast.LENGTH_SHORT).show();
-
-                    // 2. Log it to the console
-                    System.out.println("Sign in link clicked!");
-
-                    // 3. Go back to Login (finish() closes the Register screen)
-                    finish();
-                }
+        if (tvBackToLogin != null) {
+            tvBackToLogin.setOnClickListener(v -> {
+                // Kembali ke MainActivity (Skrin Login)
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish(); // Tutup RegisterActivity supaya tidak bertindan dalam backstack
             });
         }
+
+        // 3. Logik Butang "Back" (Ikon panah di atas kiri)
+        TextView btnBack = findViewById(R.id.btnBackToLogin);
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> finish());
+        }
     }
+}
