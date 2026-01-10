@@ -1,13 +1,5 @@
 package com.example.appnovavolunteer;
 
-import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,22 +14,34 @@ public class LocationAccess extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_access);
 
+        // 1. Link the views using the correct XML IDs
         Button btnShareLocation = findViewById(R.id.btnShareLocation);
         TextView tvSkip = findViewById(R.id.tvSkip);
+        View btnNotifNav = findViewById(R.id.btnNotifNav); // Corrected ID
+        View btnProfileNav = findViewById(R.id.btnProfileNav);
 
-        // 1. Share Location - Bawa ke MapsActivity (Halaman Peta)
-        btnShareLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LocationAccess.this, MapsActivity.class);
-                startActivity(intent);
-            }
+        // 2. Share Location -> Maps
+        btnShareLocation.setOnClickListener(v -> {
+            startActivity(new Intent(LocationAccess.this, MapsActivity.class));
         });
 
-        // 2. Skip - Bawa terus ke HomeActivity (Tanpa set lokasi)
+        // 3. Skip -> Home
         tvSkip.setOnClickListener(v -> {
-            Intent intent = new Intent(LocationAccess.this, HomeActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(LocationAccess.this, HomeActivity.class));
         });
+
+        // 4. Notification/Chat (Functional)
+        if (btnNotifNav != null) {
+            btnNotifNav.setOnClickListener(v -> {
+                startActivity(new Intent(LocationAccess.this, ChatActivity.class));
+            });
+        }
+
+        // 5. Profile/Account
+        if (btnProfileNav != null) {
+            btnProfileNav.setOnClickListener(v -> {
+                startActivity(new Intent(LocationAccess.this, AccountActivity.class));
+            });
+        }
     }
 }

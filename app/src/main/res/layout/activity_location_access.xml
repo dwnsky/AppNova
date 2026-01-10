@@ -105,6 +105,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageButton
+            android:id="@+id/navHome"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -113,7 +114,7 @@
             app:tint="#4E342E" />
 
         <LinearLayout
-            android:id="@+id/btnDonationNav"
+            android:id="@+id/btnRewardsNav"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -122,9 +123,10 @@
             android:backgroundTint="#4E342E"
             android:layout_margin="10dp"
             android:padding="8dp">
+
             <ImageView
                 android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_height="7dp"
                 android:src="@drawable/ic_love"
                 app:tint="#FFFFFF" />
             <TextView
@@ -137,6 +139,7 @@
         </LinearLayout>
 
         <ImageButton
+            android:id="@+id/btnNotifNav"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -145,7 +148,7 @@
             app:tint="#4E342E" />
 
         <ImageButton
-            android:id="@+id/btnAccountNav"
+            android:id="@+id/btnProfileNav"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
