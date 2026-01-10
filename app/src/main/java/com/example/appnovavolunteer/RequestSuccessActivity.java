@@ -18,11 +18,12 @@ public class RequestSuccessActivity extends AppCompatActivity {
         binding = ActivityRequestSuccessBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // 2. Logic for 'Start delivery now' -> Goes to SuccessfulActivity
+        // 2. Logic: 'Start delivery now' -> SEKARANG pergi ke UpdateDeliveryActivity
         binding.btnStartDelivery.setOnClickListener(v -> {
-            Intent intent = new Intent(RequestSuccessActivity.this, SuccessfulActivity.class);
+            Intent intent = new Intent(RequestSuccessActivity.this, DeliveryUpdateActivity.class);
             startActivity(intent);
-            // finish() prevents the user from coming back to this success screen when pressing back
+            // Kita finish() supaya user tidak patah balik ke skrin "Accepted" ini
+            // selepas mereka mula mengemas kini status penghantaran.
             finish();
         });
 
@@ -31,14 +32,11 @@ public class RequestSuccessActivity extends AppCompatActivity {
     }
 
     private void setupBottomNav() {
-        // Attempting to find the bottom nav container
         View bottomBar = findViewById(R.id.bottomNav);
         if (bottomBar != null) {
-            // Find the specific home button inside that container
             View homeBtn = bottomBar.findViewById(R.id.btnHomeNav);
             if (homeBtn != null) {
                 homeBtn.setOnClickListener(v -> {
-                    // Navigate to Home or simply finish to go back
                     Intent intent = new Intent(RequestSuccessActivity.this, HomeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);

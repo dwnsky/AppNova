@@ -2,52 +2,55 @@ package com.example.appnovavolunteer;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.appnovavolunteer.databinding.ActivityRewardsBinding;
-import java.util.Locale;
+import androidx.cardview.widget.CardView;
 
 public class RewardsActivity extends AppCompatActivity {
-
-    // 1. Pastikan nama ni sebiji macam nama fail XML (ActivityRewardsBinding)
-    private ActivityRewardsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_rewards);
 
-        // 2. Setup Binding
-        binding = ActivityRewardsBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        // 1. Inisialisasi Card Diskaun
+        CardView cardBodyShop = findViewById(R.id.cardBodyShop);
 
-        // 3. Countdown Timer (10 Jam)
-        // Kalau tvTimer merah, maksudnya ID kat XML tak kena dengan binding
-        new CountDownTimer(38722000, 1000) {
-            public void onTick(long millisUntilFinished) {
-                int hours = (int) (millisUntilFinished / (1000 * 60 * 60));
-                int minutes = (int) (millisUntilFinished / (1000 * 60)) % 60;
-                int seconds = (int) (millisUntilFinished / 1000) % 60;
-                String timeLeft = String.format(Locale.getDefault(), "Time Remaining: %02d:%02d:%02d", hours, minutes, seconds);
+        // 2. Inisialisasi Navigasi Bawah
+        ImageButton btnHomeNav = findViewById(R.id.btnHomeNav);
+        ImageButton btnProfileNav = findViewById(R.id.btnProfileNav);
+        ImageButton btnNotificationNav = findViewById(R.id.btnNotificationNav);
 
-                if (binding.tvTimer != null) {
-                    binding.tvTimer.setText(timeLeft);
-                }
-            }
-            public void onFinish() {
-                binding.tvTimer.setText("Time Remaining: 00:00:00");
-            }
-        }.start();
+        // --- LOGIK KLIK KAD DISKAUN ---
+        if (cardBodyShop != null) {
+            cardBodyShop.setOnClickListener(v -> {
+                // Berpindah ke VoucherDetailActivity
+                Intent intent = new Intent(RewardsActivity.this, VoucherDetailActivity.class);
+                startActivity(intent);
+            });
+        }
 
-        // 4. Button Claim
-        binding.btnClaim.setOnClickListener(v -> {
-            Toast.makeText(this, "50 Points Claimed!", Toast.LENGTH_SHORT).show();
-        });
+        // --- NAVIGASI BAR BAWAH ---
+        if (btnHomeNav != null) {
+            btnHomeNav.setOnClickListener(v -> {
+                startActivity(new Intent(this, HomeActivity.class));
+            });
+        }
 
-        // 5. Bottom Navigation
-        binding.btnHomeNav.setOnClickListener(v -> {
-            startActivity(new Intent(this, HomeActivity.class));
-            finish();
-        });
+        if (btnProfileNav != null) {
+            btnProfileNav.setOnClickListener(v -> {
+                startActivity(new Intent(this, AccountActivity.class));
+            });
+        }
+
+        // Anda juga boleh tambah logik untuk butang Claim jika perlu
+        Button btnClaim = findViewById(R.id.btnClaim);
+        if (btnClaim != null) {
+            btnClaim.setOnClickListener(v -> {
+                // Logik tuntut mata
+            });
+        }
     }
 }
