@@ -97,7 +97,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="donabakehouse@gmail.com"
+                                android:text="irenepavlova@gmail.com"
                                 android:textColor="#757575" />
                         </LinearLayout>
                     </RelativeLayout>
@@ -131,6 +131,38 @@
                 <RelativeLayout android:id="@+id/btnSettings" android:layout_width="match_parent" android:layout_height="65dp" android:background="?attr/selectableItemBackground">
                     <ImageView android:id="@+id/imgSet" android:layout_width="24dp" android:layout_height="24dp" android:layout_centerVertical="true" android:src="@drawable/outline_settings_24" app:tint="#1A2421" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_toEndOf="@id/imgSet" android:layout_marginStart="20dp" android:text="Settings" android:textSize="16sp" android:textColor="#1A2421" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="30dp"
+                    android:paddingHorizontal="15dp"
+                    android:background="@drawable/rounded_input"
+                    android:backgroundTint="#1AD32F2F"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:id="@+id/imgLogout"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/outline_account_circle_24"
+                        app:tint="#D32F2F" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/imgLogout"
+                        android:layout_marginStart="20dp"
+                        android:text="LOGOUT"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.05"
+                        android:textColor="#D32F2F" />
                 </RelativeLayout>
 
             </LinearLayout>
