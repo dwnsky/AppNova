@@ -15,7 +15,7 @@ public class AccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
-        // 1. Inisialisasi Butang Top Bar
+        // 1.Inisialisasi Butang Top Bar
         ImageButton btnBack = findViewById(R.id.btnBack);
 
         // 2. Inisialisasi Butang Bottom Navigation
