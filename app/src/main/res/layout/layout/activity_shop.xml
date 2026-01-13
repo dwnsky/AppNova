@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShopActivity">
+
+    <TextView
+        android:id="@+id/TVShopTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:drawablePadding="50dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Dona Bakehouse"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintStart_toEndOf="@+id/TVShopTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dona">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/TVShopLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="Petaling Street, Kuala Lumpur"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVShopTitle"
+        app:layout_constraintVertical_bias="0.136" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@id/TVShopLocation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="340dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="12dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@color/dark_brown">
+
+                    <TextView
+                        android:id="@+id/TVCroissant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Croissant"
+                        android:textColor="@color/beige"
+                        android:textSize="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="340dp"
+                    android:layout_height="135dp"
+                    android:layout_marginTop="45dp"
+                    android:backgroundTint="@color/beige"
+                    app:cardCornerRadius="12dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="135dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ImageCroissant"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/RoundedCornerImageView"
+                            app:srcCompat="@drawable/croissant" />
+
+                        <TextView
+                            android:id="@+id/TVCroissantDesc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Uploaded: 10/12/2025\nBest before: 22/12/2025\nRM10.00"
+                            android:textSize="15sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+                            android:id="@+id/TVCroissantPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="96dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="RM6.00"
+                            android:textColor="#E2392D"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/TVCroissantDesc"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/TVCroissantDiscount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="sans-serif-black"
+                            android:text="40% OFF!"
+                            android:textColor="#E2392D"
+                            android:textSize="30sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/TVCroissantDesc" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="340dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="@color/beige"
+                app:cardCornerRadius="12dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@color/dark_brown">
+
+                    <TextView
+                        android:id="@+id/TVPAC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Pain Au Chocolat"
+                        android:textColor="@color/beige"
+                        android:textSize="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="340dp"
+                    android:layout_height="135dp"
+                    android:layout_marginTop="45dp"
+                    android:backgroundTint="@color/beige"
+                    app:cardCornerRadius="12dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="135dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ImagePAC"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/RoundedCornerImageView"
+                            app:srcCompat="@drawable/pain_au_chocolat" />
+
+                        <TextView
+                            android:id="@+id/TVPACDesc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Uploaded: 10/12/2025\nBest before: 22/12/2025\nRM14.00"
+                            android:textSize="15sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+                            android:id="@+id/TVCPACPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="96dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="RM7.00"
+                            android:textColor="#E2392D"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/TVPACDesc"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/TVPACDiscount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="sans-serif-black"
+                            android:text="50% OFF!"
+                            android:textColor="#E2392D"
+                            android:textSize="30sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/TVPACDesc" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="340dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/beige"
+                app:cardCornerRadius="12dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@color/dark_brown">
+
+                    <TextView
+                        android:id="@+id/TVMacaron"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Macaron"
+                        android:textColor="@color/beige"
+                        android:textSize="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="340dp"
+                    android:layout_height="135dp"
+                    android:layout_marginTop="45dp"
+                    android:backgroundTint="@color/beige"
+                    app:cardCornerRadius="12dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="135dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ImageMacaron"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/RoundedCornerImageView"
+                            app:srcCompat="@drawable/macaron" />
+
+                        <TextView
+                            android:id="@+id/TVMacaronDesc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Uploaded: 10/12/2025\nBest before: 22/12/2025\nRM25.00"
+                            android:textSize="15sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+                            android:id="@+id/TVMacaronPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="96dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="RM15.00"
+                            android:textColor="#E2392D"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/TVMacaronDesc"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/TVMacaronDiscount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="sans-serif-black"
+                            android:text="20% OFF!"
+                            android:textColor="#E2392D"
+                            android:textSize="30sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/TVMacaronDesc" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="340dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/beige"
+                app:cardCornerRadius="12dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@color/dark_brown">
+
+                    <TextView
+                        android:id="@+id/TVTiramisu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Tiramisu"
+                        android:textColor="@color/beige"
+                        android:textSize="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="340dp"
+                    android:layout_height="135dp"
+                    android:layout_marginTop="45dp"
+                    android:backgroundTint="@color/beige"
+                    app:cardCornerRadius="12dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="135dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ImageTiramisu"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/RoundedCornerImageView"
+                            app:srcCompat="@drawable/tiramisu" />
+
+                        <TextView
+                            android:id="@+id/TVTiramisuDesc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Uploaded: 10/12/2025\nBest before: 22/12/2025\nRM25.00"
+                            android:textSize="15sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+                            android:id="@+id/TVTiramisuPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="96dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="RM15.00"
+                            android:textColor="#E2392D"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/TVTiramisuDesc"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/TVTiramisuDiscount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="sans-serif-black"
+                            android:text="20% OFF!"
+                            android:textColor="#E2392D"
+                            android:textSize="30sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/TVTiramisuDesc" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
